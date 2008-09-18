@@ -11,6 +11,11 @@ CodePrinting
 	code2pdf.sh
 		Shell Script to use enscript and ps2pdf to create a PDF of code. Was used to take code and convert it to a PDF so I could then print it on a printer at University. Requires Ghostscript to be installed as ps2pdf is not in the default Mac OS X installation.
 
+Flickr
+	flickrInfo.sh
+		Shell Script to scrape a screen capture of your Flickr stats or a set to your computer. Requires webkit2png.
+	<to be added: launchd plist>
+
 LockedDVD
 	openLockedDVD.scpt
 		AppleScript to open and copy a locked DVD created by Sony DVD Recorders
