@@ -1,0 +1,20 @@
+---------------
+
+Chealion.git - Just a public git repository of various code snippets by Micheal Jones.
+Everything here is available as Public Domain, but if you'd let me know where or how you used it I wouldn't mind. It's nice to know something I created isn't just languishing.
+
+------------------
+
+CodePrinting
+	code2html.sh
+		Shell Script to use enscript to create an HTML document of a piece of code.
+	code2pdf.sh
+		Shell Script to use enscript and ps2pdf to create a PDF of code. Was used to take code and convert it to a PDF so I could then print it on a printer at University. Requires Ghostscript to be installed as ps2pdf is not in the default Mac OS X installation.
+
+LockedDVD
+	openLockedDVD.scpt
+		AppleScript to open and copy a locked DVD created by Sony DVD Recorders
+
+TabCountGrowl
+	tabcounttogrowl.scpt
+		AppleScript to take the current number of open tabs in Safari and send it to Growl. Great for when I have more tabs open then I can count. (eg. the >> appears in Safari)
