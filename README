@@ -27,3 +27,7 @@ Shell
 TabCountGrowl
 	tabcounttogrowl.scpt
 		AppleScript to take the current number of open tabs in Safari and send it to Growl. Great for when I have more tabs open then I can count. (eg. the >> appears in Safari)
+		
+WebKitNightly
+	nightly.sh
+		Shell Script that retrieves the latest version of WebKit and installs it.
