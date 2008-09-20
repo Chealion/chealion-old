@@ -23,6 +23,8 @@ LockedDVD
 Shell
 	java.sh
 		Shell Script to simplify jcr (Java Compile and run) of basic java applications.
+	parentlock.sh
+		Removes all .parentlock files from any Thunderbird Profiles in ~/Library/ or ~/Library/Application Support
 
 TabCountGrowl
 	tabcounttogrowl.scpt
