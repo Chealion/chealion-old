@@ -1,0 +1,38 @@
+#~/.bashrc: executed by bash(1) for non-login shells
+
+#aliases
+alias lsl='ls -lFh'
+alias lsa='ls -laFh'
+alias top='top -u'
+
+#Java
+alias jcr='~/ShellScripts/java.sh -y'
+alias jcrn='~/ShellScripts/java.sh -n'
+
+#Code Output
+alias code2pdf='~/ShellScripts/code2pdf.sh'
+alias code2html='~/ShellScripts/code2html.sh'
+
+#Tools
+alias getinfo='/Developer/Tools/GetFileInfo'
+alias sees='sudo open -a /Applications/SubEthaEdit.app'
+alias lsreg='/System/Library/Frameworks/ApplicationServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user /'
+alias wkupdate='~/ShellScripts/nightly.sh'
+alias screenback='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine -background &'
+
+#Functions
+#Top 5 memory hogs
+function memh() {
+	top -n 5 -o rprvt -l1 | tail -n 5 | awk '{ printf "%5d\t%-10s\t%4.1fMB\n", $1, $2, $(NF-3) }';
+}
+
+#Back Up and date
+function bkdate() {
+	cp $1 $1.`date +%Y%m%d`;
+}
+
+#Prompt
+PS1='chealion@\w: '
+
+#Information
+date
