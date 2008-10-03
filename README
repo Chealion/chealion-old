@@ -28,9 +28,13 @@ Shell
 	parentlock.sh
 		Removes all .parentlock files from any Thunderbird Profiles in ~/Library/ or ~/Library/Application Support
 
-TabCountGrowl
-	tabcounttogrowl.scpt
-		AppleScript to take the current number of open tabs in Safari and send it to Growl. Great for when I have more tabs open then I can count. (eg. the >> appears in Safari)
+AppleScripts
+	TabCountGrowl
+		tabcounttogrowl.scpt
+			AppleScript to take the current number of open tabs in Safari and send it to Growl. Great for when I have more tabs open then I can count. (eg. the >> appears in Safari)
+	CurrentPlayingTrack
+		CurrentPlayingTrack.scpt
+			Applescript takes the current playing track in iTunes and displays it using Growl. More a proof of concept than anything but plays nice with LaunchBar when I'm in the middle of a song.
 		
 WebKitNightly
 	nightly.sh
