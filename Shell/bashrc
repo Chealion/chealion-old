@@ -16,6 +16,7 @@ alias code2html='~/ShellScripts/code2html.sh'
 #Tools
 alias getinfo='/Developer/Tools/GetFileInfo'
 alias sees='sudo open -a /Applications/SubEthaEdit.app'
+#Resets LaunchServices database - in Tiger removes the multiples of one ap showing up.
 alias lsreg='/System/Library/Frameworks/ApplicationServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user /'
 alias wkupdate='~/ShellScripts/nightly.sh'
 alias screenback='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine -background &'
