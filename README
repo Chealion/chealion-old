@@ -10,6 +10,9 @@ CodePrinting
 		Shell Script to use enscript to create an HTML document of a piece of code.
 	code2pdf.sh
 		Shell Script to use enscript and ps2pdf to create a PDF of code. Was used to take code and convert it to a PDF so I could then print it on a printer at University. Requires Ghostscript to be installed as ps2pdf is not in the default Mac OS X installation.
+		
+Dashboard
+	logo.wdgt - A super simple widget with the express purpose of showing logo.jpg that will resize proportionally without any borders or anything similar.
 
 Flickr
 	flickrInfo.sh
