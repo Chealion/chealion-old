@@ -24,6 +24,10 @@ Shell
 		Shell Script to use enscript to create an HTML document of a piece of code.
 	code2pdf.sh
 		Shell Script to use enscript and ps2pdf to create a PDF of code. Was used to take code and convert it to a PDF so I could then print it on a printer at University. Requires Ghostscript to be installed as ps2pdf is not in the default Mac OS X installation.
+	gitconfig
+		My .gitconfig file
+	gitignore
+		My .gitignore file
 	java.sh
 		Shell Script to simplify jcr (Java Compile and run) of basic java applications.
 	parentlock.sh

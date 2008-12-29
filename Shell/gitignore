@@ -1,0 +1,16 @@
+#OS X
+.DS_Store
+profile
+
+#Xcode and TextMate noise
+*.swp
+*~.nib
+build
+*.pbxuser
+*.perspective
+*.perspectivev3
+*.tm_build_errors
+*.model1v3
+
+#SVN
+.svn
