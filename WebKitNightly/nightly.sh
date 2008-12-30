@@ -5,7 +5,7 @@ currentRevision=`cat /Applications/WebKit.app/Contents/Resources/VERSION`
 
 #Get address
 #Download start page, find address
-address=`curl -s http://nightly.webkit.org/start/?current-revision=$currentRevision | grep 'WebKit-SVN-r[0-9]*' -o | head -n 1`
+address=`curl -s http://nightly.webkit.org/start/trunk/$currentRevision | grep 'WebKit-SVN-r[0-9]*' -o | head -n 1`
 
 #Abort if there is no update
 if [ "$address" == "" ]
