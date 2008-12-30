@@ -1,10 +1,20 @@
----------------
+-----------------
 
 Chealion.git - Just a public git repository of various code snippets by Micheal Jones.
 Everything here is available under an MIT License, but if you'd let me know where or how you used it I wouldn't mind. It's nice to know something I created isn't just languishing.
 
 ------------------
-		
+
+AppleScripts
+	CurrentPlayingTrack
+		CurrentPlayingTrack.scpt
+			Applescript takes the current playing track in iTunes and displays it using Growl. More a proof of concept than anything but plays nice with LaunchBar when I'm in the middle of a song.
+	Signatures
+		Signature Creating AppleScript - answer some AppleScript questions and fills out a pre-made HTML signature and installs for Mail or Thunderbird. See README found in folder for more details.
+	TabCountGrowl
+		tabcounttogrowl.scpt
+			AppleScript to take the current number of open tabs in Safari and send it to Growl. Great for when I have more tabs open then I can count. (eg. the >> appears in Safari)
+
 Dashboard
 	logo.wdgt - A super simple widget with the express purpose of showing logo.jpg that will resize proportionally without any borders or anything similar.
 
@@ -35,19 +45,17 @@ Shell
 	whatIsOpen.sh
 		Lists what files are open on external disks (helps let you know why they will not eject). Best used in conjunction with Platypus' Text Window
 
-AppleScripts
-	TabCountGrowl
-		tabcounttogrowl.scpt
-			AppleScript to take the current number of open tabs in Safari and send it to Growl. Great for when I have more tabs open then I can count. (eg. the >> appears in Safari)
-	CurrentPlayingTrack
-		CurrentPlayingTrack.scpt
-			Applescript takes the current playing track in iTunes and displays it using Growl. More a proof of concept than anything but plays nice with LaunchBar when I'm in the middle of a song.
-		
 WebKitNightly
 	nightly.sh
 		Shell Script that retrieves the latest version of WebKit and installs it.
 
----
+------------------
+
+Submodules Used:
+
+Webarchiver.git (Applescripts/Signatures) - http://github.com/paulwilliam/webarchiver/tree/master
+
+------------------
 
 The MIT License
 

@@ -1,0 +1,6 @@
+[submodule "webarchiver"]
+	path = Applescripts/Signatures/
+	url = git://github.com/paulwilliam/webarchiver.git
+[submodule "Applescripts/Signatures/webarchiver.git"]
+	path = Applescripts/Signatures/webarchiver.git
+	url = git://github.com/paulwilliam/webarchiver.git
