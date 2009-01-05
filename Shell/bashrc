@@ -20,6 +20,8 @@ alias sees='sudo open -a /Applications/SubEthaEdit.app'
 alias lsreg='/System/Library/Frameworks/ApplicationServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user /'
 alias wkupdate='~/ShellScripts/nightly.sh'
 alias screenback='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine -background &'
+alias dud='du -h -d 1'
+alias fmtreadme='cat $1 | fmt -w 95 | pbcopy'
 
 #Functions
 #Top 5 memory hogs
