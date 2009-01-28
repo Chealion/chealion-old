@@ -1,0 +1,1 @@
+A super basic example of how to setup a page that requires a cookie to be present in order to view the site. This however does not redirect them back however as it's only present in index.php and is designed for use with Joomla.
