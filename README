@@ -42,12 +42,19 @@ Shell
 		Shell Script to simplify jcr (Java Compile and run) of basic java applications.
 	parentlock.sh
 		Removes all .parentlock files from Camino and any Thunderbird Profiles in ~/Library/ or ~/Library/Application Support
+	regex.py
+		Simple python script to facilitate running regular expressions on the clipboard contents. My first Python script
 	whatIsOpen.sh
 		Lists what files are open on external disks (helps let you know why they will not eject). Best used in conjunction with Platypus' Text Window
 
+Web
+	PHP
+		BasicRedirect
+			A super basic example of how to setup a page that requires a cookie to be present in order to view the site. This however does not redirect them back however as it's only present in index.php and is designed for use with Joomla.
+
 WebKitNightly
 	nightly.sh
-		Shell Script that retrieves the latest version of WebKit and installs it.
+		Shell Script that retrieves the latest version of WebKit and installs it. Kind of useless now that they've implemented Sparkle.
 
 ------------------
 
