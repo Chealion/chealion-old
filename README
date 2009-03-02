@@ -41,7 +41,7 @@ Shell
 	java.sh
 		Shell Script to simplify jcr (Java Compile and run) of basic java applications.
 	parentlock.sh
-		Removes all .parentlock files from Camino and any Thunderbird Profiles in ~/Library/ or ~/Library/Application Support
+		Removes all .parentlock files from Camino, Firefox and any Thunderbird Profiles in ~/Library/ or ~/Library/Application Support
 	regex.py
 		Simple python script to facilitate running regular expressions on the clipboard contents. My first Python script
 	whatIsOpen.sh
