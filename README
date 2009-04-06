@@ -44,6 +44,8 @@ Shell
 		Removes all .parentlock files from Camino, Firefox and any Thunderbird Profiles in ~/Library/ or ~/Library/Application Support
 	regex.py
 		Simple python script to facilitate running regular expressions on the clipboard contents. My first Python script
+	rumpusAddUser.py
+		A python script designed to add a user to the User database for Rumpus and email the details (and generated password).
 	whatIsOpen.sh
 		Lists what files are open on external disks (helps let you know why they will not eject). Best used in conjunction with Platypus' Text Window
 
