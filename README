@@ -42,6 +42,8 @@ Shell
 		Shell Script to simplify jcr (Java Compile and run) of basic java applications.
 	parentlock.sh
 		Removes all .parentlock files from Camino, Firefox and any Thunderbird Profiles in ~/Library/ or ~/Library/Application Support
+	passwordGen.py
+		A simple password generator
 	regex.py
 		Simple python script to facilitate running regular expressions on the clipboard contents. My first Python script
 	rumpusAddUser.py
