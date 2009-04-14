@@ -109,7 +109,7 @@ def emailUser(email, username, password):
 	password = password[0]
 	
 	#Set up headers first
-	message = "From: support@DOMAIN\r\nSubject: FTP Account Created\r\nBCC: support@DOMAIN\r\nTo: " + email + "\r\n\r\n"
+	message = "From: support@DOMAIN\r\nSubject: FTP Account Created\r\nBcc: support@DOMAIN\r\nTo: " + email + "\r\n\r\n"
 	
 	message += "The account has been successfully created.\n\n Username: " + username + "\n Password:  " + password + "\n Phonetic: " + phonetics + "\n\n URLS\n======\n" + "FTP Connection: ftp://" + username + ":" + password + "@FTP_SERVER \n Website: http://DOMAIN:8080/Login \n Local Connection: afp://LOCAL_SERVER/" + username
 	
