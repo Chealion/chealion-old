@@ -3,6 +3,8 @@
 This program adds a user to the Rumpus Database.
 
 Usage: rumpusAddUser.py "Email Address" "USERNAME" "PASSWORD"
+or
+Usage: rumpusAddUser.py --check "USERNAME"
 
 # Takes the following arguments:
 # $1 = Your Email Address
@@ -18,6 +20,7 @@ Made for Python 2.6.1
 
 Version History:
 
+1.1.0		Add --check mechanism
 1.0.1		Add bcc to support@DOMAIN
 1.0.0		Initial Release
 
@@ -186,6 +189,15 @@ def main(argv):
 	EMAIL = argv[1]
 	username = argv[2]
 	password = argv[3]
+	
+	#Checking mechanism
+	if argv[1] == "--check":
+		if checkEntries(users, argv[2]) == False:
+			print "User Exists"
+			exit(2)
+		else:
+			print "Valid Username"
+			exit(0)
 
 	os.chdir(CLIENT_PATH)
 	users = []
