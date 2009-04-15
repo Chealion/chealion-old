@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Create FTP User' target in the 'Create FTP User' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
