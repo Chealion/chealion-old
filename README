@@ -18,6 +18,10 @@ AppleScripts
 Dashboard
 	logo.wdgt - A super simple widget with the express purpose of showing logo.jpg that will resize proportionally without any borders or anything similar.
 
+iPhone
+	StanfordCS193P
+		See seperate README within that folder.
+
 Flickr
 	flickrInfo.sh
 		Shell Script to scrape a screen capture of your Flickr stats or a set to your computer. Requires webkit2png.

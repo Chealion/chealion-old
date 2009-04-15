@@ -1,0 +1,17 @@
+-----------------
+
+Chealion.git - Just a public git repository of various code snippets by Micheal Jones.
+Everything here is available under an MIT License, but if you'd let me know where or how you used it I wouldn't mind. It's nice to know something I created isn't just languishing.
+
+This is my public repository of my completed assignments of the CS193P class at Stanford. (http://cs193p.stanford.edu) These are made as I'm learning so they should not be taken as anything more than ideas for possible solutions.
+
+------------------
+
+1A
+	Hello Stanford - a Hello World app for the iPhone
+1B
+	WhatATool - Sections 1 to 4 - Command Line Application. Intro to Obj-C.
+2A
+	WhatATool - Sections 5 and 6 - Command Line Application. Custom Classes and Memory Management.
+2B
+	HelloPoly - Part 1 with the extra credit sections.
