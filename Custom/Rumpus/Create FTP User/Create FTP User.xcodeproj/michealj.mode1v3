@@ -197,48 +197,7 @@
 	<key>Notifications</key>
 	<array/>
 	<key>OpenEditors</key>
-	<array>
-		<dict>
-			<key>Content</key>
-			<dict>
-				<key>PBXProjectModuleGUID</key>
-				<string>4C7364160F93EC5500F0E76C</string>
-				<key>PBXProjectModuleLabel</key>
-				<string>createFTP.m</string>
-				<key>PBXSplitModuleInNavigatorKey</key>
-				<dict>
-					<key>Split0</key>
-					<dict>
-						<key>PBXProjectModuleGUID</key>
-						<string>4C7364170F93EC5500F0E76C</string>
-						<key>PBXProjectModuleLabel</key>
-						<string>createFTP.m</string>
-						<key>_historyCapacity</key>
-						<integer>0</integer>
-						<key>bookmark</key>
-						<string>4C064C560F93FF3500C9ECF6</string>
-						<key>history</key>
-						<array>
-							<string>4CD678040F93FE7F000A1BAA</string>
-						</array>
-					</dict>
-					<key>SplitCount</key>
-					<string>1</string>
-				</dict>
-				<key>StatusBarVisibility</key>
-				<true/>
-			</dict>
-			<key>Geometry</key>
-			<dict>
-				<key>Frame</key>
-				<string>{{0, 20}, {1068, 688}}</string>
-				<key>PBXModuleWindowStatusBarHidden2</key>
-				<false/>
-				<key>RubberWindowFrame</key>
-				<string>15 108 1068 729 0 0 1440 878 </string>
-			</dict>
-		</dict>
-	</array>
+	<array/>
 	<key>PerspectiveWidths</key>
 	<array>
 		<integer>-1</integer>
@@ -250,7 +209,7 @@
 			<key>ChosenToolbarItems</key>
 			<array>
 				<string>active-target-popup</string>
-				<string>active-buildstyle-popup</string>
+				<string>active-combo-popup</string>
 				<string>action</string>
 				<string>NSToolbarFlexibleSpaceItem</string>
 				<string>buildOrClean</string>
@@ -348,12 +307,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Info.plist</string>
+								<string>createFTP.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -361,18 +322,18 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>Info.plist</string>
+										<string>createFTP.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>4C064C530F93FF3500C9ECF6</string>
+										<string>4C58D4A20F964DC8001BCDE1</string>
 										<key>history</key>
 										<array>
 											<string>4C7363F30F93EBFB00F0E76C</string>
 											<string>4C7363F40F93EBFB00F0E76C</string>
 											<string>4CD677F60F93FE7F000A1BAA</string>
+											<string>4C58D4910F964C56001BCDE1</string>
 											<string>4C064C4E0F93FF3500C9ECF6</string>
-											<string>4C064C4F0F93FF3500C9ECF6</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -380,9 +341,8 @@
 											<string>4C73637B0F93E77700F0E76C</string>
 											<string>4C73637C0F93E77700F0E76C</string>
 											<string>4C7363F70F93EBFB00F0E76C</string>
-											<string>4C064C500F93FF3500C9ECF6</string>
 											<string>4C064C510F93FF3500C9ECF6</string>
-											<string>4C064C520F93FF3500C9ECF6</string>
+											<string>4C58D4920F964C56001BCDE1</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -440,9 +400,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>4C064C540F93FF3500C9ECF6</string>
+				<string>4C58D47A0F9649A5001BCDE1</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>4C064C550F93FF3500C9ECF6</string>
+				<string>4C58D47B0F9649A5001BCDE1</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -576,9 +536,11 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>4C58D48F0F964C43001BCDE1</string>
+		<string>4C58D4900F964C43001BCDE1</string>
 		<string>4C0387C00F93DACC000C81C2</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>4C7364160F93EC5500F0E76C</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/michealj/Projects/Rumpus/Create FTP User/Create FTP User.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -659,7 +621,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>4C0387C00F93DACC000C81C2</string>
-				<string>4C064C570F93FF3500C9ECF6</string>
+				<string>4C58D48D0F964C43001BCDE1</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -779,13 +741,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>4C064C580F93FF3500C9ECF6</string>
+				<string>4C58D47D0F9649A5001BCDE1</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>4C064C590F93FF3500C9ECF6</string>
-				<string>4C064C5A0F93FF3500C9ECF6</string>
-				<string>4C064C5B0F93FF3500C9ECF6</string>
-				<string>4C064C5C0F93FF3500C9ECF6</string>
-				<string>4C064C5D0F93FF3500C9ECF6</string>
+				<string>4C58D47E0F9649A5001BCDE1</string>
+				<string>4C58D47F0F9649A5001BCDE1</string>
+				<string>4C58D4800F9649A5001BCDE1</string>
+				<string>4C58D4810F9649A5001BCDE1</string>
+				<string>4C58D4820F9649A5001BCDE1</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -912,6 +874,8 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -947,7 +911,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>4C76AA3A0F93EFC300E9A5FF</string>
+				<string>4C58D48E0F964C43001BCDE1</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
@@ -957,7 +921,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

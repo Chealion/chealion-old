@@ -15,6 +15,7 @@
 }
 
 -(void)awakeFromNib;
+-(BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication*)theApplication;
 
 
 @end

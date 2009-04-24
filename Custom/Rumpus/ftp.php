@@ -1,16 +1,6 @@
 <?php
 
 /*
-Implementation Notes:
-
-1) Check IP - if not local not an error saying off site creation is disabled.
-2) JavaScript check on username onblur
-3) Design for 640x480 window.
-4) HTML Form
-5) Spit back the output of the command in a special section
-6) Check for $_GET["username"] if it exists in list of users.
-
-
 FTP Creation Page
 (c) 2009 Micheal Jones
 */
@@ -24,7 +14,9 @@ if(isset($_POST["submission"])) {
 	$output = "";
 	$return = 0;
 	
-	exec("/opt/local/bin/python2.5 /Volumes/MailRAID/websites/jmg/internalapps/rumpusAddUser.py $emailAddress $username $password", &$output, &$return);
+	// **** CHANGE
+	$cmd = "/PATH/TO/python2.5 /PATH/TO/rumpusAddUser.py \"$emailAddress\" \"$username\" \"$password\"";
+	exec($cmd, &$output, &$return);
 }
 
 if(isset($_GET["username"]))
@@ -32,14 +24,15 @@ if(isset($_GET["username"]))
 else
 	$username = "";
 
-$users = array("howardw", "iand", "mattg", "michealj", "mikes", "missyv", "reception", "support");
+// **** CHANGE
+$users = array("fill", "in", "user", "names", "here");
 
 
 ?>
 
 <html>
 	<head>
-		<title>Joe Media FTP Creation</title>
+		<title>FTP Creation</title>
 		<script type="text/javascript">
 			<!--
 			var validUser = false;
@@ -51,6 +44,8 @@ $users = array("howardw", "iand", "mattg", "michealj", "mikes", "missyv", "recep
 			}
 			
 			function checkInput() {
+				//In case username still has focus.
+				validateUsername();
 				
 				if(validUser && validEmail) {
 					var e = document.getElementById("ftp_creation");
@@ -77,32 +72,38 @@ $users = array("howardw", "iand", "mattg", "michealj", "mikes", "missyv", "recep
 			}
 			
 			function validateUsername() {
+				var e = document.getElementById("progressIndicator");
+				e.style.display = "block";
 				var username = document.getElementById("username").value;
 				
 				if(window.ActiveXObject)
 					k = new ActiveXObject("Microsoft.XMLHTTP");
 				
-				k.open("POST", "http://www.joemedia.tv/internalapps/checkUser.php?username=" + username);
+				// **** CHANGE
+				k.open("POST", "http://www.domain.com/path/to/checkUser.php?username=" + username);
 				k.send(null);
-				var e = document.getElementById("progressIndicator");
-				e.style.display = "";
+				
 				k.onreadystatechange = function() {
-					var exists = k.responseText;
-					alert(exists);
-					e = document.getElementById("username");
-					var error = document.getElementById("error");
-					if(!exists) {
-						validUser = true;
-						if(e.style.background != "")
-							e.style.background = "";
-						error.innerHTML = "";
-					} else {
-						validUser = false;
-						e.style.background = "#ff0000";
-						error.innerHTML = "Username already exists";
+					if(k.readyState == 4) {
+						var exists = k.responseText;
+						e = document.getElementById("username");
+						var error = document.getElementById("error");
+						if(exists == "false") {
+							validUser = true;
+							if(e.style.background != "")
+								e.style.background = "";
+							error.innerHTML = "";
+						} else {
+							validUser = false;
+							e.style.background = "#ff0000";
+							error.innerHTML = "Username already exists";
+						}
+						e = document.getElementById("progressIndicator");
+						e.style.display = "none";
 					}
 				}
 			}
+			
 			
 			function validateEmail() {
 				var email = document.getElementById("email");
@@ -129,6 +130,8 @@ $users = array("howardw", "iand", "mattg", "michealj", "mikes", "missyv", "recep
 					background: #ddd;
 					margin: 2px;
 					padding: 5px;
+					width: 640px;
+					min-height: 480px;
 				}
 			#header {
 					font-weight: bold;
@@ -145,7 +148,7 @@ $users = array("howardw", "iand", "mattg", "michealj", "mikes", "missyv", "recep
 			#instructions {
 				display: none;
 			}
-			form {  width: 400px;
+			form {  width: 420px;
 					margin: 0 auto;
 					padding: 0;
 			}
@@ -161,10 +164,15 @@ $users = array("howardw", "iand", "mattg", "michealj", "mikes", "missyv", "recep
 					font-size: x-small;
 			}
 			#progressIndicator {
-				display: none;
+					display: none;
 			}
-			#error {
-				display: none;
+			#infoBox {
+					text-align: center;
+					margin: 5px auto;
+					padding: 5px;
+					border-width: 1px 0px 1px 0;
+					border: solid #000;
+					width: 430px;
 			}
 			#copyright {
 					font-size: small;
@@ -177,7 +185,7 @@ $users = array("howardw", "iand", "mattg", "michealj", "mikes", "missyv", "recep
 	<body>
 		<div id="box">
 			<div id="header">
-				JOE: Media Group <br />FTP Creation
+				COMPANY NAME<br />FTP Creation
 			</div>
 			<div id="subheader">
 				<strong>Instructions:</strong> <a href="#" onclick="toggleInstructions();"><span id="instruction" class="small">(Click to toggle instructions)</span></a><br />
@@ -192,8 +200,10 @@ $users = array("howardw", "iand", "mattg", "michealj", "mikes", "missyv", "recep
 			</div>
 			<?php 
 			
-			if(isset($_POST["submission"]))
-				print_r($output);
+			if(isset($_POST["submission"])) {
+				//We will show the details here in version 1.5.0 additionally have the Cocoa app automount the mail mount
+				print "<div id=\"infoBox\">Created! Please check your email for the username and password details</div>";
+			}
 			
 			?>
 			<form id="ftp_creation" name="ftp" method="POST" action="">
@@ -221,7 +231,7 @@ $users = array("howardw", "iand", "mattg", "michealj", "mikes", "missyv", "recep
 						<td>@joemedia.tv</td>
 					</tr>
 					<tr><td><label>Username:</label></td>
-						<td><input type="text" name="username" id="username" onblur="validateUsername();" /></td><td><img src="indicator.gif" id="progressIndicator" /><span id="error">ERROR TEXT</span></td>
+						<td><input type="text" name="username" id="username" onblur="validateUsername();" /></td><td><img src="indicator.gif" id="progressIndicator" /><span id="error" class="small"></span></td>
 					</tr>
 					<tr>
 						<td><label>Password:<br /><span class="small">(Leave blank to have one auto generated)</span></label></td>

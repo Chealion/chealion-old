@@ -12,7 +12,7 @@
 @implementation createFTP
 
 -(void)awakeFromNib {
-	NSString *username = [[NSString alloc] initWithString:@"http://www.joemedia.tv/internalapps/ftp.php?secret=secret&username="];
+	NSString *username = [[NSString alloc] initWithString:@"http://DOMAIN/PATH/TO/ftp.php?secret=secret&username="];
 	NSString *createURL = [username stringByAppendingString:NSUserName()];
 	
 	//NSLog(@"%@", createURL);
@@ -20,6 +20,11 @@
 	[webView setMainFrameURL:createURL];
 	
 	[username release];
+}
+
+-(BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication*)theApplication
+{
+	return YES;
 }
 
 @end

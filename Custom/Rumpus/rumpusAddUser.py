@@ -2,7 +2,7 @@
 
 This program adds a user to the Rumpus Database.
 
-Usage: rumpusAddUser.py "Email Address" "USERNAME" "PASSWORD"
+Usage: /opt/local/bin/python2.5 rumpusAddUser.py "Email Address" "USERNAME" "PASSWORD"
 or
 Usage: rumpusAddUser.py --check "USERNAME"
 
@@ -16,19 +16,20 @@ Usage: rumpusAddUser.py --check "USERNAME"
 # 2 User already exists
 # 3 Unable to reload Database
 
-Made for Python 2.6.1
+Made for Python 2.5.4
 
 Version History:
 
+1.1.1		Fix bcc support
 1.1.0		Add --check mechanism
-1.0.1		Add bcc to support@DOMAIN
+1.0.1		Add bcc to support@joemedia.tv
 1.0.0		Initial Release
 
 """
 
 __author__ = "Micheal Jones (michealj@joemedia.tv)"
-__version__ = "$Revision: 1.0.1 $"
-__date__ = "$Date: 2009/04/06 $"
+__version__ = "$Revision: 1.1.1 $"
+__date__ = "$Date: 2009/04/15 $"
 __copyright__ = "Copyright (c) 2009 Micheal Jones"
 __license__ = "BSD"
 
@@ -64,7 +65,7 @@ def readEntries(RUMPUS_PATH):
 ########################
 
 def checkEntries(users, username):
-# Check entries
+# Check entries to see if user exists
 
 	for user in users:
 		user = user.split()
@@ -111,14 +112,15 @@ def emailUser(email, username, password):
 	phonetics = password[1]
 	password = password[0]
 	
+	# **** CHANGE
 	#Set up headers first
-	message = "From: support@DOMAIN\r\nSubject: FTP Account Created\r\nBcc: support@DOMAIN\r\nTo: " + email + "\r\n\r\n"
+	message = "From: SENDING ADDRESS\r\nSubject: FTP Account Created\r\nTo: " + email + "\r\n\r\n"
 	
-	message += "The account has been successfully created.\n\n Username: " + username + "\n Password:  " + password + "\n Phonetic: " + phonetics + "\n\n URLS\n======\n" + "FTP Connection: ftp://" + username + ":" + password + "@FTP_SERVER \n Website: http://DOMAIN:8080/Login \n Local Connection: afp://LOCAL_SERVER/" + username
+	message += "A new FTP account on the FTP Server has been successfully created.\n\n Username: " + username + "\n Password:  " + password + "\n Phonetic: " + phonetics + "\n\n URLS\n======\n" + "FTP Connection: ftp://" + username + ":" + password + "@FTP_ADDRESS \n Website: http://DOMAIN_ADDRESS:RUMPUS_PORT/Login \n Local Connection: afp://SERVER/SHARENAME/" + username
 	
 	# Send the email - we are not handling any exceptions because of our static environment
-	conn = smtplib.SMTP('MAIL_SERVER', '25')
-	conn.sendmail('support@DOMAIN', email, message)
+	conn = smtplib.SMTP('MAIL SERVER HERE', '25')
+	conn.sendmail('SENDING ADDRESS', [email, 'BCC EMAIL ADDRESS'], message)
 	conn.quit()
 
 ########################
@@ -174,21 +176,26 @@ def reloadURL(SERVER, PORT, RELOAD_URL):
 
 def main(argv):
 	RUMPUS_PATH = "/usr/local/Rumpus/Rumpus.users"
-	SERVER = "DOMAIN"
+	SERVER = "SERVER_DOMAIN"
 	PORT = "8080"
-	RELOAD_URL = "/reloadUserDB"
-	CLIENT_PATH = "LOCAL_PATH"
+	RELOAD_URL = "/reloadUserDB" #SERVER_DOMAIN/RELOAD_URL
+	CLIENT_PATH = "/PATH/TO/WHERE/THE/FOLDERS/ARE/STORED"
 	
 	#Check if arguments are valid
+	
 	if len(argv) < 3:
 		usage(1)
 		exit(1)
 	elif len(argv) < 4:
 		argv.append("")
 	
-	EMAIL = argv[1]
+	EMAIL = argv[1] + "@DOMAIN"
 	username = argv[2]
 	password = argv[3]
+
+	os.chdir(CLIENT_PATH)
+	users = []
+	users = readEntries(RUMPUS_PATH)
 	
 	#Checking mechanism
 	if argv[1] == "--check":
@@ -198,10 +205,6 @@ def main(argv):
 		else:
 			print "Valid Username"
 			exit(0)
-
-	os.chdir(CLIENT_PATH)
-	users = []
-	users = readEntries(RUMPUS_PATH)
 
 	if checkEntries(users, username) == False:
 		usage(2)

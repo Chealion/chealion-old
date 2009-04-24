@@ -2,7 +2,12 @@
 
 $username = $_GET["username"];
 
-//exec("/opt/local/bin/python2.5 rumpusAddUser.py --check $username", &$output, &$return);
+// **** CHANGE
+exec("/PATH/TO/PYTHON/python /PATH/TO/rumpusAddUser.py --check $username", &$output, &$return);
 
-echo "true";
+if($return == 0)
+	echo "false";
+else
+	echo "true";
+
 ?>
