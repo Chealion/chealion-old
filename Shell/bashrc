@@ -34,6 +34,16 @@ function bkdate() {
 	cp $1 $1.`date +%Y%m%d`;
 }
 
+#Display a dialog
+function dialog() {
+	osascript -e "tell application \"Finder\"" -e "activate" -e "display dialog \"$1\"" -e "end tell"
+}
+
+#Git revision number
+function rgit() {
+	git rev-list --abbrev-commit HEAD|wc -l|awk '{print $1}'
+}
+
 #Prompt
 PS1='chealion@\w: '
 
