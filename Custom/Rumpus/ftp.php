@@ -3,6 +3,14 @@
 /*
 FTP Creation Page
 (c) 2009 Micheal Jones
+Version 1.0.2
+
+Version History
+======
+
+1.0.2 - Deal with ampersands correctly, font size larger
+1.0.1 - Fix empty username returning a "username exists" error.
+1.0 - Initial Release
 */
 
 //If this has been submitted:
@@ -76,6 +84,13 @@ $users = array("fill", "in", "user", "names", "here");
 				e.style.display = "block";
 				var username = document.getElementById("username").value;
 				
+				//If username is blank, abort
+				if(username == "")
+					exit();
+				e = document.getElementById("infoBox");
+				if(e)
+					e.style.display = "none";
+				
 				if(window.ActiveXObject)
 					k = new ActiveXObject("Microsoft.XMLHTTP");
 				
@@ -135,18 +150,18 @@ $users = array("fill", "in", "user", "names", "here");
 				}
 			#header {
 					font-weight: bold;
-					font-size: 36px;
+					font-size: 48px;
 					text-align: center;
 					margin: 0 0 15px 0;
 					padding: 0;
 				}
 			#subheader {
-					font-size: small;
+					font-size: 14px;
 					width: 300px;
 					margin: 0 auto;
 			}
 			#instructions {
-				display: none;
+					display: none;
 			}
 			form {  width: 420px;
 					margin: 0 auto;
@@ -156,12 +171,20 @@ $users = array("fill", "in", "user", "names", "here");
 					width: 4em;
 					text-align: right;
 					margin-right: 0.5em;
-				}
+					font-size: 18px;
+			}
 			input {
 					border: 1px solid #000;
+					font-size: 18px;
+					width: 150px;
+			}
+			select {
+					width: 100%;
+					text-align: right;
+					font-size: 18px;
 			}
 			.small {
-					font-size: x-small;
+					font-size: 12px;
 			}
 			#progressIndicator {
 					display: none;
@@ -174,8 +197,12 @@ $users = array("fill", "in", "user", "names", "here");
 					border: solid #000;
 					width: 430px;
 			}
+			#infoBox pre {
+					text-align: left;
+					padding-left: 150px;
+			}
 			#copyright {
-					font-size: small;
+					font-size: 14px;
 					text-align: center;
 					margin-top: 15px;
 					padding: 0;
@@ -201,8 +228,11 @@ $users = array("fill", "in", "user", "names", "here");
 			<?php 
 			
 			if(isset($_POST["submission"])) {
-				//We will show the details here in version 1.5.0 additionally have the Cocoa app automount the mail mount
-				print "<div id=\"infoBox\">Created! Please check your email for the username and password details</div>";
+				if(isset($output)) {
+					$details = "<pre>Username: " . $createdUsername . "\nPassword: " . $createdPassword . "\n" . "</pre><br />";
+				}
+				
+				print "<div id=\"infoBox\"><p>Created! Please check your email for the username and password details.</p>" . $details . "</div>";
 			}
 			
 			?>
@@ -244,7 +274,8 @@ $users = array("fill", "in", "user", "names", "here");
 				</table>
 			</form>
 			<div id="copyright">
-				&copy; 2009 - Version 1.0.0
+				<!-- bug: Needs to open in Safari, target="_new" prevents app from screwing up. -->
+				&copy; 2009 - Version <a href="" target="_new">1.0.1</a>
 			</div>
 		</div>
 	</body>

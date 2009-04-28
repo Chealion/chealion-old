@@ -307,14 +307,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>createFTP.m</string>
+								<string>createFTP.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -322,18 +320,18 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>createFTP.m</string>
+										<string>createFTP.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>4C58D4A20F964DC8001BCDE1</string>
+										<string>4C3CA5910FA64B9C0019CD4A</string>
 										<key>history</key>
 										<array>
 											<string>4C7363F30F93EBFB00F0E76C</string>
 											<string>4C7363F40F93EBFB00F0E76C</string>
-											<string>4CD677F60F93FE7F000A1BAA</string>
 											<string>4C58D4910F964C56001BCDE1</string>
-											<string>4C064C4E0F93FF3500C9ECF6</string>
+											<string>4C3CA5880FA64B9C0019CD4A</string>
+											<string>4C3CA5890FA64B9C0019CD4A</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -342,7 +340,13 @@
 											<string>4C73637C0F93E77700F0E76C</string>
 											<string>4C7363F70F93EBFB00F0E76C</string>
 											<string>4C064C510F93FF3500C9ECF6</string>
-											<string>4C58D4920F964C56001BCDE1</string>
+											<string>4C3CA58A0FA64B9C0019CD4A</string>
+											<string>4C3CA58B0FA64B9C0019CD4A</string>
+											<string>4C3CA58C0FA64B9C0019CD4A</string>
+											<string>4C3CA58D0FA64B9C0019CD4A</string>
+											<string>4C3CA58E0FA64B9C0019CD4A</string>
+											<string>4C3CA58F0FA64B9C0019CD4A</string>
+											<string>4C3CA5900FA64B9C0019CD4A</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -364,6 +368,8 @@
 							<string>469pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -400,9 +406,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>4C58D47A0F9649A5001BCDE1</string>
+				<string>4C3CA5730FA64A640019CD4A</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>4C58D47B0F9649A5001BCDE1</string>
+				<string>4C3CA5740FA64A640019CD4A</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -536,8 +542,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>4C58D48F0F964C43001BCDE1</string>
-		<string>4C58D4900F964C43001BCDE1</string>
 		<string>4C0387C00F93DACC000C81C2</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>1C78EAAD065D492600B07095</string>
@@ -621,7 +625,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>4C0387C00F93DACC000C81C2</string>
-				<string>4C58D48D0F964C43001BCDE1</string>
+				<string>4C3CA5920FA64B9C0019CD4A</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -741,13 +745,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>4C58D47D0F9649A5001BCDE1</string>
+				<string>4C3CA5750FA64A640019CD4A</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>4C58D47E0F9649A5001BCDE1</string>
-				<string>4C58D47F0F9649A5001BCDE1</string>
-				<string>4C58D4800F9649A5001BCDE1</string>
-				<string>4C58D4810F9649A5001BCDE1</string>
-				<string>4C58D4820F9649A5001BCDE1</string>
+				<string>4C3CA5760FA64A640019CD4A</string>
+				<string>4C3CA5770FA64A640019CD4A</string>
+				<string>4C3CA5780FA64A640019CD4A</string>
+				<string>4C3CA5790FA64A640019CD4A</string>
+				<string>4C3CA57A0FA64A640019CD4A</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -911,7 +915,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>4C58D48E0F964C43001BCDE1</string>
+				<string>4C3CA5930FA64B9C0019CD4A</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>

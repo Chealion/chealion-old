@@ -9,7 +9,7 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="371"/>
-			<integer value="469"/>
+			<integer value="459"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -284,6 +284,7 @@
 									<string>NeXT Rich Text Format v1.0 pasteboard type</string>
 									<string>NeXT TIFF v4.0 pasteboard type</string>
 									<string>WebURLsWithTitlesPboardType</string>
+									<string>public.png</string>
 									<string>public.url</string>
 									<string>public.url-name</string>
 								</object>
@@ -363,14 +364,6 @@
 						<reference key="destination" ref="449930660"/>
 					</object>
 					<int key="connectionID">580</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">dockMenu</string>
-						<reference key="source" ref="1050"/>
-						<reference key="destination" ref="449930660"/>
-					</object>
-					<int key="connectionID">581</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">

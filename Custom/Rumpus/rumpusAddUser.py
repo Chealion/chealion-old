@@ -20,6 +20,9 @@ Made for Python 2.5.4
 
 Version History:
 
+1.1.3		Add printDetails for parsing in ftp.php
+1.1.2		Fix password spacing
+			Fix missing "/" at end of paths causing broken accounts
 1.1.1		Fix bcc support
 1.1.0		Add --check mechanism
 1.0.1		Add bcc to support@joemedia.tv
@@ -28,8 +31,8 @@ Version History:
 """
 
 __author__ = "Micheal Jones (michealj@joemedia.tv)"
-__version__ = "$Revision: 1.1.1 $"
-__date__ = "$Date: 2009/04/15 $"
+__version__ = "$Revision: 1.1.3 $"
+__date__ = "$Date: 2009/04/27 $"
 __copyright__ = "Copyright (c) 2009 Micheal Jones"
 __license__ = "BSD"
 
@@ -125,6 +128,13 @@ def emailUser(email, username, password):
 
 ########################
 
+def printDetails(username, password):
+# Write out details - not in use yet.
+
+ 	print username + "\n" + password[0] + "\n" + "\n afp://SERVER/PATH/" + username
+
+########################
+
 def addEntry(CLIENT_PATH, username, password):
 # ADD NEW ENTRY
 	
@@ -132,7 +142,8 @@ def addEntry(CLIENT_PATH, username, password):
 		password = createPassword()
 	else:
 		password = (password, "")
-	path = CLIENT_PATH + username
+	path = CLIENT_PATH + username + "/"
+
 
 	user = username + "\t" + password[0] + "\t" + path + "	YYYYYYYYNNN	0	0		N1	N16	N10	NBRR	P	N16	N-				.	\n"
 	
@@ -217,6 +228,7 @@ def main(argv):
 	writeEntries(users, RUMPUS_PATH)
 	reloadURL(SERVER, PORT, RELOAD_URL)
 	emailUser(EMAIL, username, password)
+	printDetails(username, password)
 
 	
 ########################
