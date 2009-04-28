@@ -22,6 +22,11 @@ Everything here is available under an MIT License, but if you'd let me know wher
 				AppleScript to take the current number of open tabs in Safari and send it to Growl. Great for when I have more tabs open then I can count. (eg. the >> appears in Safari)
 
 
+	Custom
+		Rumpus
+			A mix of different technologies to create FTP accounts in Rumpus 5. It uses PHP for the web app, a simple Cocoa app for the user end, and Python for the actual script itself. It was largely a learning project to learn how to script using Python and some super basic Cocoa.
+
+
 	Dashboard
 		logo.wdgt - A super simple widget with the express purpose of showing logo.jpg that will resize proportionally without any borders or anything similar.
 
@@ -67,13 +72,13 @@ Everything here is available under an MIT License, but if you'd let me know wher
 		
 		whatIsOpen.sh
 			Lists what files are open on external disks (helps let you know why they will not eject). Best used in conjunction with Platypus' Text Window
-		
+
 
 	Web
 		PHP
 			BasicRedirect
 				A super basic example of how to setup a page that requires a cookie to be present in order to view the site. This however does not redirect them back however as it's only present in index.php and is designed for use with Joomla.
-			
+
 
 	WebKitNightly
 		nightly.sh
