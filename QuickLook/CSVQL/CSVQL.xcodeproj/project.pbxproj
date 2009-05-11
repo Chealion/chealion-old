@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C05A19C06CAA52B00D84F6F /* GeneratePreviewForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05A19B06CAA52B00D84F6F /* GeneratePreviewForURL.m */; };
-		4C3B7B630FB8A51E0002B060 /* CVSQL.qlgenerator in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8D576316048677EA00EA77CD /* CVSQL.qlgenerator */; };
+		4C3B7B630FB8A51E0002B060 /* CSVQL.qlgenerator in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8D576316048677EA00EA77CD /* CSVQL.qlgenerator */; };
 		4C3B7B9A0FB8B69D0002B060 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3B7B990FB8B69D0002B060 /* Cocoa.framework */; };
 		61E3BCFB0870B4F2002186A0 /* GenerateThumbnailForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E3BCFA0870B4F2002186A0 /* GenerateThumbnailForURL.m */; };
 		8D576312048677EA00EA77CD /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FB77B6FE84183AC02AAC07 /* main.c */; settings = {ATTRIBUTES = (); }; };
@@ -26,7 +26,7 @@
 			dstPath = "~/Library/QuickLook/";
 			dstSubfolderSpec = 0;
 			files = (
-				4C3B7B630FB8A51E0002B060 /* CVSQL.qlgenerator in CopyFiles */,
+				4C3B7B630FB8A51E0002B060 /* CSVQL.qlgenerator in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,7 +39,7 @@
 		2C05A19B06CAA52B00D84F6F /* GeneratePreviewForURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratePreviewForURL.m; sourceTree = "<group>"; };
 		4C3B7B990FB8B69D0002B060 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		61E3BCFA0870B4F2002186A0 /* GenerateThumbnailForURL.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = GenerateThumbnailForURL.m; sourceTree = "<group>"; };
-		8D576316048677EA00EA77CD /* CVSQL.qlgenerator */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CVSQL.qlgenerator; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D576316048677EA00EA77CD /* CSVQL.qlgenerator */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CSVQL.qlgenerator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D576317048677EA00EA77CD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C86B05260671AA6E00DD9006 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
 		F28CFBFC0A3EC0AF000ABFF5 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
@@ -62,7 +62,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		089C166AFE841209C02AAC07 /* CVSQL */ = {
+		089C166AFE841209C02AAC07 /* CSVQL */ = {
 			isa = PBXGroup;
 			children = (
 				08FB77AFFE84173DC02AAC07 /* Source */,
@@ -70,7 +70,7 @@
 				089C1671FE841209C02AAC07 /* External Frameworks and Libraries */,
 				19C28FB6FE9D52B211CA2CBB /* Products */,
 			);
-			name = CVSQL;
+			name = CSVQL;
 			sourceTree = "<group>";
 		};
 		089C1671FE841209C02AAC07 /* External Frameworks and Libraries */ = {
@@ -107,7 +107,7 @@
 		19C28FB6FE9D52B211CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D576316048677EA00EA77CD /* CVSQL.qlgenerator */,
+				8D576316048677EA00EA77CD /* CSVQL.qlgenerator */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,9 +125,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		8D57630D048677EA00EA77CD /* CVSQL */ = {
+		8D57630D048677EA00EA77CD /* CSVQL */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2CA3261E0896AD4900168862 /* Build configuration list for PBXNativeTarget "CVSQL" */;
+			buildConfigurationList = 2CA3261E0896AD4900168862 /* Build configuration list for PBXNativeTarget "CSVQL" */;
 			buildPhases = (
 				8D57630E048677EA00EA77CD /* Headers */,
 				8D57630F048677EA00EA77CD /* Resources */,
@@ -140,10 +140,10 @@
 			);
 			dependencies = (
 			);
-			name = CVSQL;
+			name = CSVQL;
 			productInstallPath = /Library/QuickLook;
-			productName = CVSQL;
-			productReference = 8D576316048677EA00EA77CD /* CVSQL.qlgenerator */;
+			productName = CSVQL;
+			productReference = 8D576316048677EA00EA77CD /* CSVQL.qlgenerator */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -151,14 +151,14 @@
 /* Begin PBXProject section */
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 2CA326220896AD4900168862 /* Build configuration list for PBXProject "CVSQL" */;
+			buildConfigurationList = 2CA326220896AD4900168862 /* Build configuration list for PBXProject "CSVQL" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
-			mainGroup = 089C166AFE841209C02AAC07 /* CVSQL */;
+			mainGroup = 089C166AFE841209C02AAC07 /* CSVQL */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D57630D048677EA00EA77CD /* CVSQL */,
+				8D57630D048677EA00EA77CD /* CSVQL */,
 			);
 		};
 /* End PBXProject section */
@@ -220,7 +220,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = /Library/QuickLook;
-				PRODUCT_NAME = CVSQL;
+				PRODUCT_NAME = CSVQL;
 				WRAPPER_EXTENSION = qlgenerator;
 			};
 			name = Debug;
@@ -233,7 +233,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = /Library/QuickLook;
-				PRODUCT_NAME = CVSQL;
+				PRODUCT_NAME = CSVQL;
 				WRAPPER_EXTENSION = qlgenerator;
 			};
 			name = Release;
@@ -266,7 +266,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2CA3261E0896AD4900168862 /* Build configuration list for PBXNativeTarget "CVSQL" */ = {
+		2CA3261E0896AD4900168862 /* Build configuration list for PBXNativeTarget "CSVQL" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2CA3261F0896AD4900168862 /* Debug */,
@@ -275,7 +275,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2CA326220896AD4900168862 /* Build configuration list for PBXProject "CVSQL" */ = {
+		2CA326220896AD4900168862 /* Build configuration list for PBXProject "CSVQL" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2CA326230896AD4900168862 /* Debug */,

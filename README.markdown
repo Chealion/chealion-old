@@ -43,7 +43,7 @@ Everything here is available under an MIT License, but if you'd let me know wher
 
 
 	QuickLook
-		CVSQL
+		CSVQL
 			A really, really simply QuickLook generator that will display .csv files. It's super basic and there's bound to be a better way because it just reads the text files and spits it out in a <code><pre> tag set for HTML viewing with some super basic CSS.
 
 
