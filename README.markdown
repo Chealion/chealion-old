@@ -42,6 +42,11 @@ Everything here is available under an MIT License, but if you'd let me know wher
 			AppleScript to open and copy a locked DVD created by Sony DVD Recorders
 
 
+	QuickLook
+		CVSQL
+			A really, really simply QuickLook generator that will display .csv files. It's super basic and there's bound to be a better way because it just reads the text files and spits it out in a <code><pre> tag set for HTML viewing with some super basic CSS.
+
+
 	Shell
 		bashrc
 			My .bashrc file - includes functions to show the top 5 memory "hogs" running along with a backup with date fuction (great for backing up configuration files)

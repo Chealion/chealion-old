@@ -11,19 +11,19 @@
 
 OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview, CFURLRef url, CFStringRef contentTypeUTI, CFDictionaryRef options)
 {
+	//Make pool
 	NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
 	NSURL* urlNS = (NSURL *)url;
 	
+	//Turn the file into our fancy HTML file. Not woo.
 	NSMutableString *html = [[[NSMutableString alloc] init] autorelease];
-	[html appendString:@"<html><head></head><body><h1>"];
+	[html appendString:@"<html><head><style>pre { margin: 2px; padding: 5px; background: #eee;} h1 { text-align: center }</style></head><body><h1>"];
 	[html appendString:[urlNS path]];
 	[html appendString:@"</h1><code><pre>"];
 	[html appendString:[NSString stringWithContentsOfFile:[urlNS path] encoding:NSUTF8StringEncoding error:nil]];
 	[html appendString:@"</pre></code></html>"];
 	
-	NSLog(@"Source: %@", html);
-	NSLog(@"URL: %@ %@", urlNS , [urlNS path]);
-	
+	//Call QL to display our csv file
 	CFDictionaryRef props = (CFDictionaryRef) [NSDictionary dictionary];
 	
 	QLPreviewRequestSetDataRepresentation(
