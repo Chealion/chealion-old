@@ -2,7 +2,10 @@
 
 Web Page: [chealion.ca](http://chealion.ca)
 
-Just a public git repository of various code snippets by Micheal Jones.  
+Various Code Snippets and projects that don't deserve their own Github repository by Micheal Jones.
+
+Please feel free to submit patches or request that one of the projects be forked (or made available to fork as it's own project)
+ 
 Everything here is available under an MIT License, but if you'd let me know where or how you used it I wouldn't mind. It's nice to know something I created isn't just languishing.
 
 ------------------
