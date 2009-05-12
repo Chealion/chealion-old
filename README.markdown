@@ -12,28 +12,39 @@ Everything here is available under an MIT License, but if you'd let me know wher
 	AppleScripts
 		CurrentPlayingTrack
 			CurrentPlayingTrack.scpt
-				Applescript takes the current playing track in iTunes and displays it using Growl. More a proof of concept than anything but plays nice with LaunchBar when I'm in the middle of a song.
-			
+				Applescript takes the current playing track in iTunes and
+				displays it using Growl. More a proof of concept than anything
+				but plays nice with LaunchBar when I'm in the middle of a song.
+
 		Signatures
-			Signature Creating AppleScript, answer some AppleScript questions and fills out a pre-made HTML signature and installs for Mail or Thunderbird. See README.markdown found in folder for more details.
-		
+			Signature Creating AppleScript, answer some AppleScript questions and
+			fills out a pre-made HTML signature and installs for Mail or
+			Thunderbird. See README.markdown found in folder for more details.
+
 		TabCountGrowl
 			tabcounttogrowl.scpt
-				AppleScript to take the current number of open tabs in Safari and send it to Growl. Great for when I have more tabs open then I can count. (eg. the >> appears in Safari)
+				AppleScript to take the current number of open tabs in Safari
+				and send it to Growl. Great for when I have more tabs open then
+				I can count. (eg. the >> appears in Safari)
 
 
 	Custom
 		Rumpus
-			A mix of different technologies to create FTP accounts in Rumpus 5. It uses PHP for the web app, a simple Cocoa app for the user end, and Python for the actual script itself. It was largely a learning project to learn how to script using Python and some super basic Cocoa.
+			A mix of different technologies to create FTP accounts in Rumpus 5. It
+			uses PHP for the web app, a simple Cocoa app for the user end, and
+			Python for the actual script itself. It was largely a learning project
+			to learn how to script using Python and some super basic Cocoa.
 
 
 	Dashboard
-		logo.wdgt - A super simple widget with the express purpose of showing logo.jpg that will resize proportionally without any borders or anything similar.
+		logo.wdgt - A super simple widget with the express purpose of showing logo.jpg
+		that will resize proportionally without any borders or anything similar.
 
 
 	Flickr
 		flickrInfo.sh
-			Shell Script to scrape a screen capture of your Flickr stats or a set to your computer. Requires webkit2png.
+			Shell Script to scrape a screen capture of your Flickr stats or a set
+			to your computer. Requires webkit2png.
 		<to be added: launchd plist>
 
 
@@ -44,50 +55,68 @@ Everything here is available under an MIT License, but if you'd let me know wher
 
 	QuickLook
 		CSVQL
-			A really, really simply QuickLook generator that will display .csv files. It's super basic and there's bound to be a better way because it just reads the text files and spits it out in a <code><pre> tag set for HTML viewing with some super basic CSS.
+			A really, really simply QuickLook generator that will display .csv
+			files. It's super basic and there's bound to be a better way because it
+			just reads the text files and spits it out in a <code><pre> tag set for
+			HTML viewing with some super basic CSS.
 
 
 	Shell
 		bashrc
-			My .bashrc file - includes functions to show the top 5 memory "hogs" running along with a backup with date fuction (great for backing up configuration files)
-		
+			My .bashrc file - includes functions to show the top 5 memory "hogs"
+			running along with a backup with date fuction (great for backing up
+			configuration files)
+
 		code2html.sh
-			Shell Script to use enscript to create an HTML document of a piece of code.
-		
+			Shell Script to use enscript to create an HTML document of a piece of
+			code.
+
 		code2pdf.sh
-			Shell Script to use enscript and ps2pdf to create a PDF of code. Was used to take code and convert it to a PDF so I could then print it on a printer at University. Requires Ghostscript to be installed as ps2pdf is not in the default Mac OS X installation.
-		
+			Shell Script to use enscript and ps2pdf to create a PDF of code. Was
+			used to take code and convert it to a PDF so I could then print it on a
+			printer at University. Requires Ghostscript to be installed as ps2pdf
+			is not in the default Mac OS X installation.
+
 		gitconfig
 			My .gitconfig file
-		
+
 		gitignore
 			My .gitignore file
-		
+
 		java.sh
-			Shell Script to simplify jcr (Java Compile and run) of basic java applications.
-		
+			Shell Script to simplify jcr (Java Compile and run) of basic java
+			applications.
+
 		parentlock.sh
-			Removes all .parentlock files from Camino, Firefox and any Thunderbird Profiles in ~/Library/ or ~/Library/Application Support
-		
+			Removes all .parentlock files from Camino, Firefox and any Thunderbird
+			Profiles in ~/Library/ or ~/Library/Application Support
+
 		passwordGen.py
 			A simple password generator INCOMPLETE
-		
+
 		regex.py
-			Simple python script to facilitate running regular expressions on the clipboard contents. My first Python script
-		
+			Simple python script to facilitate running regular expressions on the
+			clipboard contents. My first Python script
+
 		whatIsOpen.sh
-			Lists what files are open on external disks (helps let you know why they will not eject). Best used in conjunction with Platypus' Text Window
+			Lists what files are open on external disks (helps let you know why
+			they will not eject). Best used in conjunction with Platypus' Text
+			Window
 
 
 	Web
 		PHP
 			BasicRedirect
-				A super basic example of how to setup a page that requires a cookie to be present in order to view the site. This however does not redirect them back however as it's only present in index.php and is designed for use with Joomla.
+				A super basic example of how to setup a page that requires a
+				cookie to be present in order to view the site. This however
+				does not redirect them back however as it's only present in
+				index.php and is designed for use with Joomla.
 
 
 	WebKitNightly
 		nightly.sh
-			Shell Script that retrieves the latest version of WebKit and installs it. Kind of useless now that they've implemented Sparkle.
+			Shell Script that retrieves the latest version of WebKit and installs
+			it. Kind of useless now that they've implemented Sparkle.
 
 ------------------
 
