@@ -33,6 +33,7 @@ Everything here is available under an MIT License, but if you'd let me know wher
 	ChromiumUpdater
 		chromium.sh
 			Shell Script that retrieves the latest version of Chromium and installs.
+			Based on my now defunct nightly.sh for WebKit.
 
 	Custom
 		Rumpus
