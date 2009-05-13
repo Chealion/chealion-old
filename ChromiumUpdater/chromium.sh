@@ -1,6 +1,8 @@
 #! /bin/bash
 
 # Based off my WebKit nightly script (now defunct as WebKit uses Sparkle)
+# Copyright 2009 Micheal Jones
+# Software License: Do whatever you want.
 
 #Find current revision
 currentRevision=`/usr/libexec/PlistBuddy -c 'Print :SVNRevision' /Applications/Chromium.app/Contents/Info.plist`
