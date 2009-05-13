@@ -30,6 +30,9 @@ Everything here is available under an MIT License, but if you'd let me know wher
 				and send it to Growl. Great for when I have more tabs open then
 				I can count. (eg. the >> appears in Safari)
 
+	ChromiumUpdater
+		chromium.sh
+			Shell Script that retrieves the latest version of Chromium and installs.
 
 	Custom
 		Rumpus
