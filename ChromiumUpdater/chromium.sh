@@ -24,6 +24,7 @@ echo "Downloading... $address"
 curl -s $address -o /tmp/chrome.zip
 
 #Unzip
+cd /tmp
 unzip /tmp/chrome.zip 1>/dev/null
 
 echo "Copying..."
