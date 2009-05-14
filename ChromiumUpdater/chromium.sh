@@ -28,12 +28,12 @@ unzip /tmp/chrome.zip 1>/dev/null
 
 echo "Copying..."
 #Copy to Applications
-revision=`/usr/libexec/PlistBuddy -c 'Print :SVNRevision' /Applications/Chromium.app/Contents/Info.plist`
-
 cp -RfL /tmp/chrome-mac/Chromium.app /Applications/ 2>/dev/null
 
 echo "Cleaning up..."
 #Clean up
 rm -rf /tmp/chrome*
+
+revision=`/usr/libexec/PlistBuddy -c 'Print :SVNRevision' /Applications/Chromium.app/Contents/Info.plist`
 
 echo "Finished. (r$revision)"
