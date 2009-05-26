@@ -93,6 +93,9 @@ Everything here is available under an MIT License, but if you'd let me know wher
 		java.sh
 			Shell Script to simplify jcr (Java Compile and run) of basic java
 			applications.
+			
+		MACcheck.sh
+			Shell script to take the output of `arp -a` and find the manufacturers of the MACs on the network. Also useful as a starting point for modifying the output of a list of MAC addresses (colons, dashes, etc.)
 
 		parentlock.sh
 			Removes all .parentlock files from Camino, Firefox and any Thunderbird
