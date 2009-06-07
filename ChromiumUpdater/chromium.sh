@@ -8,7 +8,7 @@
 currentRevision=`/usr/libexec/PlistBuddy -c 'Print :SVNRevision' /Applications/Chromium.app/Contents/Info.plist`
 
 #Get latest revision
-latestRevision=`curl -s http://build.chromium.org/buildbot/snapshots/sub-rel-mac/LATEST`
+latestRevision=`curl -s http://build.chromium.org/buildbot/snapshots/chromium-rel-mac/LATEST`
 
 #Abort if there is no update
 if [ $latestRevision -le $currentRevision ]
@@ -18,7 +18,7 @@ then
 fi
 
 #Append download address
-address='http://build.chromium.org/buildbot/snapshots/sub-rel-mac/'${latestRevision}'/chrome-mac.zip'
+address='http://build.chromium.org/buildbot/snapshots/chromium-rel-mac/'${latestRevision}'/chrome-mac.zip'
 
 echo "Downloading... $address"
 curl -s $address -o /tmp/chrome.zip
