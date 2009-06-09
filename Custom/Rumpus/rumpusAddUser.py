@@ -20,6 +20,13 @@ Made for Python 2.5.4
 
 Version History:
 
+1.1.6		Fix issue with submitting with a password would fail.
+1.1.5		Add version output
+			Fix spacing of email
+			Fix login links for website (namely add it)
+1.1.4		Remove phonetics
+			Remove @, ? and &s from generated passwords
+			Revise email (note: can not make auto login link - doesn't support GET)
 1.1.3		Add printDetails for parsing in ftp.php
 1.1.2		Fix password spacing
 			Fix missing "/" at end of paths causing broken accounts
@@ -29,10 +36,10 @@ Version History:
 1.0.0		Initial Release
 
 """
-
+version = "1.1.6"
 __author__ = "Micheal Jones (michealj@joemedia.tv)"
-__version__ = "$Revision: 1.1.3 $"
-__date__ = "$Date: 2009/04/27 $"
+__version__ = "$Revision: 1.1.6 $"
+__date__ = "$Date: 2009/06/09 $"
 __copyright__ = "Copyright (c) 2009 Micheal Jones"
 __license__ = "BSD"
 
@@ -41,6 +48,13 @@ import os
 import httplib
 import smtplib
 import random
+
+########################
+
+def displayVersion():
+# Show version
+	print version
+
 
 ########################
 
@@ -82,20 +96,17 @@ def checkEntries(users, username):
 def createPassword():
 # Create a random password - modified from passwordGen.py
 	password = ""
-	phonetics = ""
 	
-	#Create Dictionaries
-	sub_phoneticAlphabet = ["alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "juliet", "kilo", "mike", "november", "papa", "quebec", "romeo", "sierra", "tango", "uniform", "victor", "whiskey", "xray", "yankee", "zulu", "ALPHA", "BRAVO", "CHARLIE", "DELTA", "ECHO", "FOXTROT", "GOLF", "HOTEL", "JULIET", "KILO", "MIKE", "NOVEMBER", "PAPA", "QUEBEC", "ROMEO", "SIERRA", "TANGO", "UNIFORM", "VICTOR", "WHISKEY", "XRAY", "YANKEE", "ZULU", "two", "three", "four", "five", "six", "seven", "eight", "nine", "Tilde", "At sign", "Hash", "Dollar sign", "Percent sign", "Caret", "Ampersand", "Asterisk", "Dash", "Underscore", "Period"]
-	sub_alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "j", "k", "m", "n", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "J", "K", "M", "N", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "2", "3", "4", "5", "6", "7", "8", "9", "~", "@", "#", "$", "%", "^", "&", "*", "-", "_", "."]
+	#Create Dictionary
+	sub_alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "j", "k", "m", "n", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "J", "K", "M", "N", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "2", "3", "4", "5", "6", "7", "8", "9", "~", "#", "$", "%", "^", "*", "-", "_", "."]
 	
 	for count in range(0,8):
 		#Choose a random character
 		character = random.randint(0, len(sub_alphabet) - 1)
 		
 		password += sub_alphabet[character]
-		phonetics += sub_phoneticAlphabet[character] + " "
 	
-	return password, phonetics
+	return password
 
 ########################
 
@@ -111,16 +122,34 @@ def makeFolder(PATH):
 def emailUser(email, username, password):
 # Email whomever made the account with the account details
 	
-	#Split list
-	phonetics = password[1]
-	password = password[0]
+	#Get login link
+	websiteLoginLink = "http://www.DOMAIN HERE:8080/?login=" + username + ":" + password
+	ftpLoginLink = "ftp://" + username + ":" + password + "@FTP_SITE_HERE"
 	
 	# **** CHANGE
 	#Set up headers first
-	message = "From: SENDING ADDRESS\r\nSubject: FTP Account Created\r\nTo: " + email + "\r\n\r\n"
+	message = "From: SENDING@ADDRESS\r\nSubject: FTP Account Created\r\nTo: " + email + "\r\n\r\n"
 	
-	message += "A new FTP account on the FTP Server has been successfully created.\n\n Username: " + username + "\n Password:  " + password + "\n Phonetic: " + phonetics + "\n\n URLS\n======\n" + "FTP Connection: ftp://" + username + ":" + password + "@FTP_ADDRESS \n Website: http://DOMAIN_ADDRESS:RUMPUS_PORT/Login \n Local Connection: afp://SERVER/SHARENAME/" + username
-	
+	message += """
+Hi,
+
+A new FTP account has been created on the  FTP server for you.
+
+Your Username is: """ + username + """
+Your Password is: """ + password + """
+
+To access the files available for this account you may use one of the following options:
+
+1) Use our website
+	Use this link to access the Client Site and be logged in automatically: < """ + websiteLoginLink + """ >
+	or
+	Go to http://DOMAIN/ and click on the client login section on the top menu bar where you may enter your username and password.
+
+2) Use a FTP client
+	Use this link to log you in directly: < """ + ftpLoginLink + """ >
+	or manually enter the following details:
+	Server: FTP_SERVER
+	Username and password from above	
 	# Send the email - we are not handling any exceptions because of our static environment
 	conn = smtplib.SMTP('MAIL SERVER HERE', '25')
 	conn.sendmail('SENDING ADDRESS', [email, 'BCC EMAIL ADDRESS'], message)
@@ -129,9 +158,9 @@ def emailUser(email, username, password):
 ########################
 
 def printDetails(username, password):
-# Write out details - not in use yet.
+# Write out details
 
- 	print username + "\n" + password[0] + "\n" + "\n afp://SERVER/PATH/" + username
+ 	print username + "\n" + password + "\n" + "\n afp://AFP_SERVEr/client_site/" + username
 
 ########################
 
@@ -140,12 +169,10 @@ def addEntry(CLIENT_PATH, username, password):
 	
 	if password == "":
 		password = createPassword()
-	else:
-		password = (password, "")
+
 	path = CLIENT_PATH + username + "/"
 
-
-	user = username + "\t" + password[0] + "\t" + path + "	YYYYYYYYNNN	0	0		N1	N16	N10	NBRR	P	N16	N-				.	\n"
+	user = username + "\t" + password + "\t" + path + "	YYYYYYYYNNN	0	0		N1	N16	N10	NBRR	P	N16	N-				.	\n"
 	
 	return user, password
 
@@ -193,6 +220,10 @@ def main(argv):
 	CLIENT_PATH = "/PATH/TO/WHERE/THE/FOLDERS/ARE/STORED"
 	
 	#Check if arguments are valid
+	
+	if argv[1] == "--version":
+		displayVersion()
+		exit(0)
 	
 	if len(argv) < 3:
 		usage(1)

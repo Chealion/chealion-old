@@ -3,15 +3,20 @@
 /*
 FTP Creation Page
 (c) 2009 Micheal Jones
-Version 1.0.2
+Version 1.0.4
 
 Version History
 ======
 
-1.0.2 - Deal with ampersands correctly, font size larger
+1.0.4 - Add version display
+1.0.3 - Deal with issue of clicking button and it not going forward.
+		Add feedback in case the click is not on the button itself.
+		Version Display fixes
+1.0.2 - Deal with ampersands correctly, place AFP URL where it's accessible, font size larger
 1.0.1 - Fix empty username returning a "username exists" error.
 1.0 - Initial Release
 */
+$version = "1.0.4";
 
 //If this has been submitted:
 if(isset($_POST["submission"])) {
@@ -25,6 +30,11 @@ if(isset($_POST["submission"])) {
 	// **** CHANGE
 	$cmd = "/PATH/TO/python2.5 /PATH/TO/rumpusAddUser.py \"$emailAddress\" \"$username\" \"$password\"";
 	exec($cmd, &$output, &$return);
+	
+	//Split $output into pieces:
+	$createdUsername = $output[0];
+	$createdPassword = $output[1];
+	$createdAFPURL = $output[3];
 }
 
 if(isset($_GET["username"]))
@@ -35,6 +45,11 @@ else
 // **** CHANGE
 $users = array("fill", "in", "user", "names", "here");
 
+function rumpusVersion() {
+	$cmd = "/opt/local/bin/python2.5 /Volumes/MailRAID/websites/jmg/internalapps/rumpusAddUser.py --version";
+	exec($cmd, $rumpusVersion);
+	return $rumpusVersion[0];
+}
 
 ?>
 
@@ -51,13 +66,32 @@ $users = array("fill", "in", "user", "names", "here");
 				k = new XMLHttpRequest();
 			}
 			
-			function checkInput() {
-				//In case username still has focus.
-				validateUsername();
+			function checkInput(skipTest) {
+				//Disable button
+				var e = document.getElementById("submitButton");
+				e.enabled = false;
+				e.value = "Processing...";
+				
+				if(skipTest == null)
+					skipTest = false;
+
+				//In case username still has focus, check the username and give it two seconds to return the result before continuing on (calls itself saying that we can skip the user test)
+				if(!skipTest) {
+					if(!validUser) {
+						validateUsername();
+						//Call self again in a second giving a second for the AJAX call to finish
+						var t = setTimeout("checkInput(true)", 2000);
+						return false;
+					}
+				}
 				
 				if(validUser && validEmail) {
 					var e = document.getElementById("ftp_creation");
 					e.submit();
+				} else {
+					var e = document.getElementById("submitButton");
+					e.enabled = true;
+					e.value = "Create User";
 				}
 				
 				if(!validUser) {
@@ -140,6 +174,7 @@ $users = array("fill", "in", "user", "names", "here");
 				padding:0;
 				margin:0;
 				font-family: "Segoe UI", "Candara", serif;
+				overflow-x: hidden;
 			}
 			#box { 	border: 3px double #000;
 					background: #ddd;
@@ -178,6 +213,17 @@ $users = array("fill", "in", "user", "names", "here");
 					font-size: 18px;
 					width: 150px;
 			}
+			#submitButton {
+					border-right: 2px solid #000;
+					border-bottom: 2px solid #000;
+			}
+			#submitButton:active {
+					background: #fff;
+					border-right: 1px solid #ccc;
+					border-bottom: 1px solid #ccc;
+					border-top: 2px solid #000;
+					border-left: 2px solid #000;
+			}
 			select {
 					width: 100%;
 					text-align: right;
@@ -207,6 +253,9 @@ $users = array("fill", "in", "user", "names", "here");
 					margin-top: 15px;
 					padding: 0;
 			}
+			#AFPURL {
+					display: none;
+			}
 		</style>
 	</head>
 	<body>
@@ -229,7 +278,7 @@ $users = array("fill", "in", "user", "names", "here");
 			
 			if(isset($_POST["submission"])) {
 				if(isset($output)) {
-					$details = "<pre>Username: " . $createdUsername . "\nPassword: " . $createdPassword . "\n" . "</pre><br />";
+					$details = "<pre>Username: " . $createdUsername . "\nPassword: " . $createdPassword . "\n" . "</pre><br />" . "<div id=\"AFPURL\">" . $createdAFPURL . "</div>";
 				}
 				
 				print "<div id=\"infoBox\"><p>Created! Please check your email for the username and password details.</p>" . $details . "</div>";
@@ -275,7 +324,7 @@ $users = array("fill", "in", "user", "names", "here");
 			</form>
 			<div id="copyright">
 				<!-- bug: Needs to open in Safari, target="_new" prevents app from screwing up. -->
-				&copy; 2009 - Version <a href="" target="_new">1.0.1</a>
+				&copy; 2009 - Version 1.0.0<span class="small">(<?php echo rumpusVersion() . " " . $version ?>)</span>
 			</div>
 		</div>
 	</body>
