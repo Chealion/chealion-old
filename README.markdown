@@ -19,28 +19,11 @@ Everything here is available under an MIT License, but if you'd let me know wher
 				displays it using Growl. More a proof of concept than anything
 				but plays nice with LaunchBar when I'm in the middle of a song.
 
-		Signatures
-			Signature Creating AppleScript, answer some AppleScript questions and
-			fills out a pre-made HTML signature and installs for Mail or
-			Thunderbird. See README.markdown found in folder for more details.
-
 		TabCountGrowl
 			tabcounttogrowl.scpt
 				AppleScript to take the current number of open tabs in Safari
 				and send it to Growl. Great for when I have more tabs open then
 				I can count. (eg. the >> appears in Safari)
-
-	ChromiumUpdater
-		chromium.sh
-			Shell Script that retrieves the latest version of Chromium and installs.
-			Based on my now defunct nightly.sh for WebKit.
-
-	Custom
-		Rumpus
-			A mix of different technologies to create FTP accounts in Rumpus 5. It
-			uses PHP for the web app, a simple Cocoa app for the user end, and
-			Python for the actual script itself. It was largely a learning project
-			to learn how to script using Python and some super basic Cocoa.
 
 
 	Dashboard
@@ -74,6 +57,11 @@ Everything here is available under an MIT License, but if you'd let me know wher
 			running along with a backup with date fuction (great for backing up
 			configuration files)
 
+		ChromiumUpdater
+			chromium.sh
+				Shell Script that retrieves the latest version of Chromium and installs.
+				Based on my now defunct nightly.sh for WebKit.
+
 		code2html.sh
 			Shell Script to use enscript to create an HTML document of a piece of
 			code.
@@ -95,7 +83,9 @@ Everything here is available under an MIT License, but if you'd let me know wher
 			applications.
 			
 		MACcheck.sh
-			Shell script to take the output of `arp -a` and find the manufacturers of the MACs on the network. Also useful as a starting point for modifying the output of a list of MAC addresses (colons, dashes, etc.)
+			Shell script to take the output of `arp -a` and find the manufacturers
+			of the MACs on the network. Also useful as a starting point for 
+			modifying the output of a list of MAC addresses (colons, dashes, etc.)
 
 		parentlock.sh
 			Removes all .parentlock files from Camino, Firefox and any Thunderbird
@@ -107,6 +97,11 @@ Everything here is available under an MIT License, but if you'd let me know wher
 		regex.py
 			Simple python script to facilitate running regular expressions on the
 			clipboard contents. My first Python script
+			
+		WebKitNightly
+			nightly.sh
+				Shell Script that retrieves the latest version of WebKit and installs
+				it. Kind of useless now that they've implemented Sparkle.
 
 		whatIsOpen.sh
 			Lists what files are open on external disks (helps let you know why
@@ -122,17 +117,18 @@ Everything here is available under an MIT License, but if you'd let me know wher
 				does not redirect them back however as it's only present in
 				index.php and is designed for use with Joomla.
 
+------------------
 
-	WebKitNightly
-		nightly.sh
-			Shell Script that retrieves the latest version of WebKit and installs
-			it. Kind of useless now that they've implemented Sparkle.
+## Removed Projects
+
+Signature Creator now has it's own repository: (http://github.com/Chealion/signatureCreator/tree)  
+Rumpus Add User now has it's own repository as well: (http://github.com/Chealion/rumpusUserCreation/tree)
 
 ------------------
 
 ##Submodules Used:
 
-Webarchiver.git (Applescripts/Signatures) - [GitHub : paulwilliam : webarchiver](http://github.com/paulwilliam/webarchiver/tree/master)
+None.
 
 ------------------
 
