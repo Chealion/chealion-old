@@ -49,6 +49,8 @@ Everything here is available under an MIT License, but if you'd let me know wher
 			files. It's super basic and there's bound to be a better way because it
 			just reads the text files and spits it out in a <code><pre> tag set for
 			HTML viewing with some super basic CSS.
+			Check out http://code.google.com/p/quicklook-csv/ by Pascal Pfiffner for
+			a substantially nicer looking version.
 
 
 	Shell
