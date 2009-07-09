@@ -7,7 +7,7 @@
 #Find current revision
 currentRevision=`/usr/libexec/PlistBuddy -c 'Print :SVNRevision' /Applications/Chromium.app/Contents/Info.plist`
 
-#Get latest revision
+#Get latest revision - at present this fails as the LATEST will often refer to a release not available
 latestRevision=`curl -s http://build.chromium.org/buildbot/snapshots/chromium-rel-mac/LATEST`
 
 #Abort if there is no update
@@ -23,6 +23,14 @@ address='http://build.chromium.org/buildbot/snapshots/chromium-rel-mac/'${latest
 echo "Downloading... $address"
 curl -s $address -o /tmp/chrome.zip
 
+#Abort if the build is not available
+if [ "`head -n 3 /tmp/chrome.zip | tail -n 1`" = "<title>404 Not Found</title>" ];
+then
+	echo "Latest Version is not available yet (try again in a couple minutes)"
+	rm -rf /tmp/chrome-mac.zip
+	exit
+fi
+
 #Unzip
 cd /tmp
 unzip /tmp/chrome.zip 1>/dev/null
@@ -33,7 +41,7 @@ cp -RfL /tmp/chrome-mac/Chromium.app /Applications/ 2>/dev/null
 
 echo "Cleaning up..."
 #Clean up
-rm -rf /tmp/chrome*
+rm -rf /tmp/[Cc]hrome*
 
 revision=`/usr/libexec/PlistBuddy -c 'Print :SVNRevision' /Applications/Chromium.app/Contents/Info.plist`
 
