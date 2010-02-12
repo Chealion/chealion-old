@@ -7,8 +7,10 @@
 #Find current revision
 currentRevision=`/usr/libexec/PlistBuddy -c 'Print :SVNRevision' /Applications/Chromium.app/Contents/Info.plist`
 
-#Get latest revision - at present this fails as the LATEST will often refer to a release not available
-latestRevision=`curl -s http://build.chromium.org/buildbot/snapshots/chromium-rel-mac/LATEST`
+#Get latest available revision
+latestRevision=`curl -s http://build.chromium.org/buildbot/continuous/mac/LATEST/REVISION`
+
+#Use http://build.chromium.org/buildbot/snapshots/chromium-rel-mac/LATEST for the latest but not always available
 
 #Abort if there is no update
 if [ $latestRevision -le $currentRevision ]
