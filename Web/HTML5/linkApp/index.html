@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html manifest="cache-manifest.manifest">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=480; height=720; "/> <!-- viewport x 1.5 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="default" />    
+    <link rel="apple-touch-icon-precomposed" href="images/appIcon.png">
+    <link rel="apple-touch-startup-image" href="images/default.png">
+    <title>Offline Test Application</title>
+    <style type="text/css">
+		body {
+		    background: #000;
+		    color: #fff;
+		    font-family: Helvetica, Arial, serif;
+		    margin: 0;
+		    padding: 0;
+		}
+
+		#stuff {
+			width: 80%;
+		    margin: 10px auto;
+		    padding: 15px;
+		    background: url('images/matte.png');
+		    -webkit-border-radius: 15px;
+		    -moz-border-radius: 15px;
+		}
+
+		#stuff h2 {
+		    font-weight: bold;
+		    font-size: 2em;
+		    margin: 0;
+		    padding: 0;
+		    color: #eeeead;
+			text-shadow: 2px 2px 6px black;
+		}
+
+		#stuff a {
+		    color: #eeeead;
+		}
+
+		#stuff h5 {
+		    margin: 0;
+		    padding: 0;
+		    font-weight: bold;
+		    color: #ffffbe;
+		}
+
+		#stuff p {
+		    font-size: 1.5em;
+		    padding: 15px;
+		    background: rgba(0,0,0,0.05);
+		    -webkit-border-radius: 10px;
+		    -moz-border-radius: 10px;
+		}
+
+		#stuff ul {
+		    list-style-type: none;
+		    padding: 10px;
+		    margin: 0px;
+		}
+
+		#stuff li {
+		    margin: 5px;
+		}
+		
+		/* Suggestions */
+		input {
+		    -webkit-text-size-adjust: 140%;
+		}
+
+       </style>
+</head>
+<body>
+    <div id="stuff">
+    <h2>En route to Victoria</h2>
+    <h5>Links</h5>
+    <ul>
+        <li><a href="http://maps.google.com/maps?f=d&source=s_d&saddr=1235+26th+Ave.+SE+Calgary,+AB&daddr=501+Belleville+Street+Victoria,+BC&hl=en&geocode=&mra=ls&sll=37.0625,-95.677068&sspn=44.204685,93.076172&ie=UTF8&z=7">Google Maps - Calgary to Victoria</a></li>
+    </ul>
+    <h2>Ferry</h2>
+    <h5>BC Ferries</h5>
+    <ul>
+        <li><a href="http://orca.bcferries.com:8080/cc/conditions/arrivals-departures.asp?dept=TSA&amp;route=01">Tswasssen-Swartz Bay Route</a></li>
+        <li><a href="http://orca.bcferries.com:8080/cc/conditions/sailingDetail.asp?route=01&amp;dept=TSA&amp;ID=1700&amp;src=ltr">Current Conditions and Reservation</a></li>
+        <li><a href="http://mobile.bcferries.com/">Mobile Site</a></li>
+        <li><a href="http://www.bcferries.com/schedules/wireless/Tsawwassen-Swartz_Bay.html">Schedule</a></li>
+        <li><a href="http://mobile.bcferries.com/cc/mobile/at-a-glance-tsa.asp">Mobile Info at a glance</a></li>
+    </ul>
+	<p>- Micheal</p>
+    </div>
+	<!-- <input type="search" autocorrect="off" autocapitalize="off" placeholder="Letters" / > -->
+</body>
+</html>

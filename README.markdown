@@ -119,6 +119,13 @@ Everything here is available under an MIT License, but if you'd let me know wher
 				does not redirect them back however as it's only present in
 				index.php and is designed for use with Joomla.
 
+		HTML5
+			linkApp
+				Super bare bones basic app (not to mention the viewport
+				settings are hacky) designed to just be able to save a web page
+				to the iPhone - with say links instead of having to hunt for an
+				email and such.
+
 ------------------
 
 ## Removed Projects
