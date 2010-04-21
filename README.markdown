@@ -19,6 +19,12 @@ Everything here is available under an MIT License, but if you'd let me know wher
 				displays it using Growl. More a proof of concept than anything
 				but plays nice with LaunchBar when I'm in the middle of a song.
 
+		RewrapMP4
+			RewraptoMP4.scpt
+				Applescript for use with Compressor to automatically rewrap a
+				QuickTime movie into an MPEG-4 container using pass-through.
+				Great for when using x264 to make iPod/iPhone friendly videos.
+
 		TabCountGrowl
 			tabcounttogrowl.scpt
 				AppleScript to take the current number of open tabs in Safari
