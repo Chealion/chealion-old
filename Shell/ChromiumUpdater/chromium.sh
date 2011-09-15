@@ -20,7 +20,7 @@ then
 fi
 
 #Append download address
-address='commondatastorage.googleapis.com/chromium-browser-snapshots/Mac/'${latestRevision}'/chrome-mac.zip'
+address='http://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac/'${latestRevision}'/chrome-mac.zip'
 
 echo "Downloading... $address"
 curl -s $address -o /tmp/chrome.zip
