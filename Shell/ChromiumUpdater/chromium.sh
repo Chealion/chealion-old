@@ -23,7 +23,7 @@ fi
 address='http://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac/'${latestRevision}'/chrome-mac.zip'
 
 echo "Downloading... $address"
-curl -s $address -o /tmp/chrome.zip
+curl -sL $address -o /tmp/chrome.zip
 
 #Abort if the build is not available
 if [ "`head -n 3 /tmp/chrome.zip | tail -n 1`" = "<title>404 Not Found</title>" ];
