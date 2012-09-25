@@ -1,4 +1,4 @@
-ing terms from application "Mail"
+using terms from application "Mail"
 	on perform mail action with messages theSelectedMessages for rule theRule
 		repeat with theMessage in theSelectedMessages
 			set messageContent to content of theMessage
@@ -8,7 +8,21 @@ ing terms from application "Mail"
 				if aParagraph begins with "GPX" then
 					set GPXURL to characters 17 thru end of aParagraph as string
 					-- Download GPX to /tmp
-					do shell script "cd /tmp; curl -O " & quoted form of GPXURL & ""
+					repeat 3 times
+						set success to true
+						try
+							do shell script "cd /tmp; curl -fO " & quoted form of GPXURL & ""
+						on error theError
+							set success to false
+							tell application "Mail" to log theError
+						end try
+						if success = true then exit repeat
+						delay 15
+					end repeat
+					if success = false then
+						display dialog "Unable to download GPX file from Abvio. Please do this manually"
+						return -1
+					end if
 					set filename to do shell script "echo " & quoted form of GPXURL & " | awk 'BEGIN { FS=\"/\"}; {print $NF}'"
 					exit repeat
 				end if
@@ -17,6 +31,7 @@ ing terms from application "Mail"
 		
 		set theAttachment to POSIX path of "/tmp/" & filename
 		set theMessage to make new outgoing message with properties {visible:true, subject:"Cyclemeter GPX Forwarder", content:""}
+		-- Add sender:"email@address.com" to the end of this list if you have multiple accounts configured. Don't forget the comma after content:""
 		tell content of theMessage
 			make new attachment with properties {file name:theAttachment} at after last paragraph
 		end tell
