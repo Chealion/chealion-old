@@ -1,0 +1,33 @@
+ing terms from application "Mail"
+	on perform mail action with messages theSelectedMessages for rule theRule
+		repeat with theMessage in theSelectedMessages
+			set messageContent to content of theMessage
+			-- We really have to explicitly go through the entire email line by line to find the GPX Import URL: line?!
+			repeat with aParagraph in (paragraphs of messageContent)
+				set aParagraph to contents of aParagraph
+				if aParagraph begins with "GPX" then
+					set GPXURL to characters 17 thru end of aParagraph as string
+					-- Download GPX to /tmp
+					do shell script "cd /tmp; curl -O " & quoted form of GPXURL & ""
+					set filename to do shell script "echo " & quoted form of GPXURL & " | awk 'BEGIN { FS=\"/\"}; {print $NF}'"
+					exit repeat
+				end if
+			end repeat
+		end repeat
+		
+		set theAttachment to POSIX path of "/tmp/" & filename
+		set theMessage to make new outgoing message with properties {visible:true, subject:"Cyclemeter GPX Forwarder", content:""}
+		tell content of theMessage
+			make new attachment with properties {file name:theAttachment} at after last paragraph
+		end tell
+		tell theMessage
+			make new to recipient at end of to recipients with properties {name:"Strava", address:"upload@strava.com"}
+		end tell
+		
+		send theMessage
+		
+		do shell script "rm /tmp/" & filename
+		
+	end perform mail action with messages
+	
+end using terms from
