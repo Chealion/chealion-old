@@ -5,7 +5,7 @@
 # Software License: Do whatever you want.
 
 #Find current revision
-currentRevision=`/usr/libexec/PlistBuddy -c 'Print :SVNRevision' /Applications/Chromium.app/Contents/Info.plist`
+currentRevision=`/usr/libexec/PlistBuddy -c 'Print :SCMRevision' /Applications/Chromium.app/Contents/Info.plist`
 
 #Get latest available revision
 latestRevision=`curl -s http://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac/LAST_CHANGE`
@@ -29,7 +29,7 @@ curl -sL $address -o /tmp/chrome.zip
 if [ "`head -n 3 /tmp/chrome.zip | tail -n 1`" = "<title>404 Not Found</title>" ];
 then
 	echo "Latest Version is not available yet (try again in a couple minutes)"
-	rm -rf /tmp/chrome-mac.zip
+	#rm -rf /tmp/chrome-mac.zip
 	exit
 fi
 
@@ -39,12 +39,13 @@ unzip /tmp/chrome.zip 1>/dev/null
 
 echo "Copying..."
 #Copy to Applications
+mv /Applications/Chromium.app ~/.Trashes/Chromium.app
 cp -RfL /tmp/chrome-mac/Chromium.app /Applications/ 2>/dev/null
 
 echo "Cleaning up..."
 #Clean up
 rm -rf /tmp/[Cc]hrome*
 
-revision=`/usr/libexec/PlistBuddy -c 'Print :SVNRevision' /Applications/Chromium.app/Contents/Info.plist`
+revision=`/usr/libexec/PlistBuddy -c 'Print :SCMRevision' /Applications/Chromium.app/Contents/Info.plist`
 
 echo "Finished. (r$revision)"
