@@ -39,7 +39,7 @@ unzip /tmp/chrome.zip 1>/dev/null
 
 echo "Copying..."
 #Copy to Applications
-mv /Applications/Chromium.app ~/.Trashes/Chromium.app
+mv /Applications/Chromium.app ~/.Trash/Chromium.app
 cp -RfL /tmp/chrome-mac/Chromium.app /Applications/ 2>/dev/null
 
 echo "Cleaning up..."
