@@ -5,6 +5,8 @@
 # Software License: Do whatever you want.
 
 #Find current revision
+
+# Need to add if statement here if app exists
 currentRevision=`/usr/libexec/PlistBuddy -c 'Print :SCMRevision' /Applications/Chromium.app/Contents/Info.plist`
 
 #Get latest available revision
@@ -39,8 +41,12 @@ unzip /tmp/chrome.zip 1>/dev/null
 
 echo "Copying..."
 #Copy to Applications
-mv /Applications/Chromium.app ~/.Trashes/Chromium.app
+mv /Applications/Chromium.app ~/.Trash/Chromium.app
 cp -RfL /tmp/chrome-mac/Chromium.app /Applications/ 2>/dev/null
+
+# Add PDF Plugin
+echo "Adding PDF Support From Chrome to Chromium"
+cp -RfL /Applications/Google\ Chrome.app/Contents/Versions/*/Google\ Chrome\ Framework.framework/Internet\ Plug-Ins/PDF.plugin /Applications/Chromium.app/Contents/Versions/*/Chromium\ Framework.framework/Internet\ Plug-Ins/
 
 echo "Cleaning up..."
 #Clean up
