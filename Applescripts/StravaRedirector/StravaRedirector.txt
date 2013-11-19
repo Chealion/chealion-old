@@ -6,7 +6,7 @@ using terms from application "Mail"
 			repeat with aParagraph in (paragraphs of messageContent)
 				set aParagraph to contents of aParagraph
 				if aParagraph begins with "GPX" then
-					set GPXURL to characters 17 thru end of aParagraph as string
+					set GPXURL to characters 11 thru end of aParagraph as string
 					set filename to do shell script "echo " & quoted form of GPXURL & " | awk 'BEGIN { FS=\"/\"}; {print $NF}'"
 					-- Download GPX to /tmp
 					repeat 3 times
