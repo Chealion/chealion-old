@@ -6,8 +6,11 @@
 
 #Find current revision
 
-# Need to add if statement here if app exists
-currentRevision=`/usr/libexec/PlistBuddy -c 'Print :SCMRevision' /Applications/Chromium.app/Contents/Info.plist`
+if [ -f '/Applications/Chromium.app/Contents/Info.plist' ]; then
+	currentRevision=`/usr/libexec/PlistBuddy -c 'Print :SCMRevision' /Applications/Chromium.app/Contents/Info.plist`
+else
+	currentRevision=0
+fi
 
 #Get latest available revision
 latestRevision=`curl -s http://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac/LAST_CHANGE`
@@ -44,9 +47,19 @@ echo "Copying..."
 mv /Applications/Chromium.app ~/.Trash/Chromium.app
 cp -RfL /tmp/chrome-mac/Chromium.app /Applications/ 2>/dev/null
 
-# Add PDF Plugin
-echo "Adding PDF Support From Chrome to Chromium"
-cp -RfL /Applications/Google\ Chrome.app/Contents/Versions/*/Google\ Chrome\ Framework.framework/Internet\ Plug-Ins/PDF.plugin /Applications/Chromium.app/Contents/Versions/*/Chromium\ Framework.framework/Internet\ Plug-Ins/
+#If Chrome is installed we'll steal some support from it.
+
+if [ -f '/Applications/Google Chrome.app/Contents/Info.plist' ]; then
+
+	# Add PDF Plugin
+	echo "Adding PDF Support From Chrome to Chromium"
+	cp -RfL /Applications/Google\ Chrome.app/Contents/Versions/*/Google\ Chrome\ Framework.framework/Internet\ Plug-Ins/PDF.plugin /Applications/Chromium.app/Contents/Versions/*/Chromium\ Framework.framework/Internet\ Plug-Ins/
+
+	#Add ffmpeg
+	echo "Adding Chrome's ffmpeg support (H.264)"
+	cp -RfL /Applications/Google\ Chrome.app/Contents/Versions/*/Google\ Chrome\ Framework.framework/Libraries/ffmpegsumo.so /Applications/Chromium.app/Contents/Versions/*/Chromium\ Framework.framework/Libraries/
+
+fi
 
 echo "Cleaning up..."
 #Clean up
