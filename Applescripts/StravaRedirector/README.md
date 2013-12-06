@@ -2,7 +2,9 @@
 
 This downloads the linked GPX file and then creates a new email message to send it to upload@strava.com. I can take very little credit as this is mostly copy and paste sample code with some shell scripting I do actually know how to do.
 
-It will try three times to download the GPX file; I've found it fails at times. Currently it puts up a dialog box.
+It will try three times to download the GPX file as I've found it fails at times. Currently it puts up a dialog box.
+
+Please note this isn't currently being maintained but should still work.
 
 ## Instructions
 
