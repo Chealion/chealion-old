@@ -1,0 +1,8 @@
+syntax enable
+set background=light
+colorscheme solarized
+
+execute pathogen#infect()
+filetype plugin indent on
+
+set clipboard=unnamed
