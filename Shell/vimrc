@@ -22,3 +22,5 @@ set numberwidth=4
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.txt setlocal spell
 autocmd FileType gitcommit setlocal spell
+
+inoremap jj <ESC>
