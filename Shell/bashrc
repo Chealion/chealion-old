@@ -5,14 +5,6 @@ alias lsl='ls -lFh'
 alias lsa='ls -laFh'
 alias top='top -u'
 
-#Java
-alias jcr='~/ShellScripts/java.sh -y'
-alias jcrn='~/ShellScripts/java.sh -n'
-
-#Code Output
-alias code2pdf='~/ShellScripts/code2pdf.sh'
-alias code2html='~/ShellScripts/code2html.sh'
-
 #Tools
 alias getinfo='/Developer/Tools/GetFileInfo'
 alias sees='sudo open -a /Applications/SubEthaEdit.app'

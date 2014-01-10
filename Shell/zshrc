@@ -1,0 +1,116 @@
+# My unholy zshrc file
+# Really could be culled down
+
+#Housekeeping
+HISTFILE=~/.zsh_history
+HISTSIZE=5000
+SAVEHIST=1000
+setopt appendhistory inc_append_history share_history hist_ignore_dups extended_history autocd extendedglob
+export PATH=/usr/local/bin:/usr/local/sbin:~/ShellScripts:~/bin:$PATH
+
+#Default ZSH apps
+EDITOR='/usr/bin/vim'
+PAGER="less"
+
+#Go
+export GOVERSION="1.2"
+export GOROOT=$(brew --prefix)/Cellar/go/$GOVERSION
+export GOPATH=$(brew --prefix)/Cellar/go/$GOVERSION/bin
+
+#Prompt
+export PS1='chealion@%~ %# '
+
+function title() {
+  # escape '%' chars in $1, make nonprintables visible
+  a=${(V)1//\%/\%\%}
+
+  # Truncate command, and join lines.
+  a=$(print -Pn "%40>...>$a" | tr -d "\n")
+
+  case $TERM in
+  screen)
+    print -Pn "\ek$a:$3\e\\"      # screen title (in ^A")
+    ;;
+  xterm*|rxvt)
+    print -Pn "\e]2;$2 | $a:$3\a" # plain xterm title
+    ;;
+  esac
+}
+
+# precmd is called just before the prompt is printed
+function precmd() {
+  title "zsh" "$USER@%m" "%55<...<%~"
+}
+
+# preexec is called just before any command line is executed
+function preexec() {
+  title "$1" "$USER@%m" "%35<...<%~"
+}
+
+# colorful listings
+zmodload -i zsh/complist
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+autoload -U compinit
+compinit
+
+bindkey "^[[3~" delete-char
+bindkey '^R' history-incremental-search-backward
+
+# aliases
+alias mv='nocorrect mv'       # no spelling correction on mv
+alias cp='nocorrect cp'
+alias mkdir='nocorrect mkdir'
+alias j=jobs
+alias ls="ls -GF"
+alias ll="ls -l"
+alias top="top -u"
+alias lsa="ls -laFh"
+alias cd..='cd ..'
+alias ..='cd ..'
+alias tsl="tail -f /var/log/syslog"
+
+#Tools
+alias wkupdate='~/ShellScripts/nightly.sh'
+alias chromeupdate='~/ShellScripts/chromium.sh'
+alias ffmpegrewrap='/usr/local/bin/ffmpeg -i "$1" -acodec pcm_s16le -vcodec copy "$2".mov'
+
+# functions
+mdc() { mkdir -p "$1" && cd "$1" }
+setenv() { export $1=$2 }  # csh compatibility
+sdate() { date +%Y.%m.%d }
+pc() { awk "{print \$$1}" }
+rot13 () { tr "[a-m][n-z][A-M][N-Z]" "[n-z][a-m][N-Z][A-M]" }
+
+function memh() {
+    top -n 5 -o rprvt -l1 -stats pid,command,rprvt | tail -n 5;
+}
+
+function bkdate() {
+    #cp $1 {{, .`date +%Y%m%d`}};
+}
+
+function dialog() {
+    osascript -e "tell application \"Finder\"" -e "activate" -e "display dialog \"$1\"" -e "end tell"
+}
+
+function rgit() {
+    git rev-list --abbrev-commit HEAD . |wc -l|awk '{print $1}'
+}
+
+function passGen() {
+    egrep -oam1 '[a-z0-9]{8}' /dev/urandom
+}
+
+function batteryCharge() {
+    ioreg -l | grep -i capacity | tr '\n' ' | ' | awk '{printf("%.2f%%", $10/$5 * 100)}'
+}
+
+function fileHandleCount() {
+    ps -e|grep -v TTY|awk {'print "lsof -p "$1"|wc -l"'} > /tmp/a.out; chmod 755 /tmp/a.out; /tmp/a.out > /tmp/fh; awk '{s+=$1} END {print s}' /tmp/fh; rm /tmp/a.out; rm /tmp/fh;
+}
+
+#Login Information To Write
+if [[ $TERM == "xterm-color" ]]; then
+    date
+fi
