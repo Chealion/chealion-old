@@ -15,9 +15,6 @@
 [branch "master"]
     mergeoptions = --no-ff
 
-[branch "sandbox"]
-    mergeoptions = --no-ff
-
 [merge]
     log = true
 [alias]
@@ -26,5 +23,6 @@
     co = checkout
     df = diff
     lg = log -p
+    pullr = pull -rebase
 [push]
-    default=simple
+    default = simple
