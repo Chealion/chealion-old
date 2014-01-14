@@ -61,6 +61,12 @@ if [ -f '/Applications/Google Chrome.app/Contents/Info.plist' ]; then
 
 fi
 
+echo "Backing up Session File. Use Chromagon for recovery"
+find ~/Library/Application\ Support/Chromium/ -name "*Session" | while read file
+do
+    cp "$file" "$file backup"
+done
+
 echo "Cleaning up..."
 #Clean up
 rm -rf /tmp/[Cc]hrome*
