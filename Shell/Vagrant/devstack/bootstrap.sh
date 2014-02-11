@@ -15,7 +15,7 @@ echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | 
 
 sudo apt-get update
 
-sudo apt-get install -y git wget vim mongodb-10gen
+sudo apt-get install -y git wget vim htop iotop iftop mongodb-10gen
 
 git clone git://github.com/openstack-dev/devstack.git
 cd devstack
@@ -26,3 +26,6 @@ cp /vagrant/local.conf .
 sudo chown -R vagrant:vagrant ../devstack
 
 sudo -u vagrant ./stack.sh
+
+echo 1 > /proc/sys/net/ipv4/ip_forward
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
