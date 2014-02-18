@@ -22,5 +22,6 @@ set numberwidth=4
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.txt setlocal spell
 autocmd FileType gitcommit setlocal spell
+au BufRead,BufNewFile *.pp  set filetype=puppet
 
 inoremap jj <ESC>
