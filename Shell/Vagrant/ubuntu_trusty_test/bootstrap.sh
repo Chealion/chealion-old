@@ -8,4 +8,5 @@ echo 'Acquire::http { Proxy "http://192.168.123.3:3142"; };' | sudo tee /etc/apt
 
 sudo apt-get update;
 #sudo apt-get -y upgrade; #Frickin Grub...
-#sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade
+
