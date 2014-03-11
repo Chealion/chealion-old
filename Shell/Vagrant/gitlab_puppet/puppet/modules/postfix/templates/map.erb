@@ -1,0 +1,11 @@
+<% if @maps.is_a? Hash -%>
+<% @maps.sort_by {|k, v| k}.each do |key, value| -%>
+<%= key %> <%= [value].flatten.join(', ') %>
+<% end -%>
+<% elsif @maps.is_a? Array -%>
+<% @maps.each do |x| -%>
+<%= [x].flatten.join(' ') %>
+<% end -%>
+<% else -%>
+<%= [@maps].to_s %>
+<% end -%>
