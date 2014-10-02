@@ -1,6 +1,6 @@
 #! /bin/bash
 
-clients=( 'ceilometer' 'cinder' 'glance' 'heat' 'keystone' 'neutron' 'nova' 'swift' )
+clients=( 'ceilometer' 'cinder' 'glance' 'heat' 'keystone' 'neutron' 'openstack' 'nova' 'swift' 'trove' )
 
 for client in ${clients[@]}; do
 	echo $client
